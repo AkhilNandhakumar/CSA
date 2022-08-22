@@ -25,7 +25,7 @@
     
         ,"post2": {
             "title": "Java Notebook",
-            "content": "public class HelloObject { private String hello; // instance attribute or variable public HelloObject() { // constructor hello = &quot;Hello, World!&quot;; } public String getHello() { // getter, returns value from inside the object return this.hello; // return String from object } public static void main(String[] args) { HelloObject ho = new HelloObject(); // Instance of Class (ho) is an Object via &quot;new HelloObject()&quot; System.out.println(ho.getHello()); // Object allows reference to public methods and data } } // IJava activation HelloObject.main(null); .",
+            "content": "System.out.println(&quot;Hello world!&quot;); .",
             "url": "https://akhilnandhakumar.github.io/CSA/jupyter/2022/08/18/java-notebook.html",
             "relUrl": "/jupyter/2022/08/18/java-notebook.html",
             "date": " • Aug 18, 2022"
