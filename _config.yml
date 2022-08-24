@@ -10,7 +10,7 @@ title: Akhil's CSA Blog
 description: Blogging platform to document CSA notes, hacks, and test prep.
 github_username: AkhilNandhakumar
 # you can comment the below line out if your repo name is not different than your baseurl
-github_repo: "CSA-Blog"
+github_repo: "CSA"
 
 # OPTIONAL: override baseurl and url if using a custom domain
 # Note: leave out the trailing / from this value. 
@@ -34,7 +34,7 @@ url: "https://AkhilNandhakumar.github.io" # the base hostname & protocol for you
 #
 # 3. You must replace the parameter `baseurl` in _action_files/settings.ini with the same value as you set here but WITHOUT QUOTES.
 #
-baseurl: "/CSA-Blog" # the subpath of your site, e.g. "/blog".
+baseurl: "/CSA" # the subpath of your site, e.g. "/blog".
 
 # Github and twitter are optional:
 minima:
