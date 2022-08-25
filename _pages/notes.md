@@ -6,16 +6,16 @@ permalink: /notes/
 
 This page will contain content to assist with my learning for College Board topics over the course of CSA this year. Notes on test prep, college board notes, and other resources for each unit will be here.
 
-- Unit [1^]
-- Unit [2^]
-- Unit [3^]
-- Unit [4^]
-- Unit [5^]
-- Unit [6^]
-- Unit [7^]
-- Unit [8^]
-- Unit [9^]
-- Unit [10^]
+- [Unit 1](#unit-1-primitive-types)
+- [Unit 2](#unit-2-using-objects)
+- [Unit 3](#unit-3-boolean-expressions-and-if-statements)
+- [Unit 4](#unit-4-iteration)
+- [Unit 5](#unit-5-writing-classes)
+- [Unit 6](#unit-6-array)
+- [Unit 7](#unit-7-arraylist)
+- [Unit 8](#unit-8-2d-array)
+- [Unit 9](#unit-9-inheritance)
+- [Unit 10](#unit-10-recursion)
 
 ***
 
