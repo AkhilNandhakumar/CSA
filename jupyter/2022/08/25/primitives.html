@@ -173,7 +173,7 @@ window.onload = wrap_img;
         <span class="k">try</span> <span class="p">{</span>
             <span class="kt">double</span> <span class="n">sampleInputDouble</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="na">nextDouble</span><span class="p">();</span>
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sampleInputDouble</span><span class="p">);</span>
-        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// if not a number</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>  
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Not an double (form like 9.99), &quot;</span> <span class="o">+</span> <span class="n">e</span><span class="p">);</span>
         <span class="p">}</span>
         <span class="n">input</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
@@ -184,7 +184,7 @@ window.onload = wrap_img;
         <span class="k">try</span> <span class="p">{</span>
             <span class="kt">boolean</span> <span class="n">sampleInputBoolean</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="na">nextBoolean</span><span class="p">();</span>
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sampleInputBoolean</span><span class="p">);</span>
-        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// if not true or false</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Not an boolean (true or false), &quot;</span> <span class="o">+</span> <span class="n">e</span><span class="p">);</span>
         <span class="p">}</span>
         <span class="n">input</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
@@ -194,7 +194,7 @@ window.onload = wrap_img;
         <span class="k">try</span> <span class="p">{</span>
             <span class="n">String</span> <span class="n">sampleInputString</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span>
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sampleInputString</span><span class="p">);</span>
-        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// this may never happen</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Not an String, &quot;</span> <span class="o">+</span> <span class="n">e</span><span class="p">);</span>
         <span class="p">}</span>
         <span class="n">input</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
@@ -206,6 +206,23 @@ window.onload = wrap_img;
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Enter an integer: 4
+Enter a double: 4.3
+Enter a boolean: true
+Enter a String: hi
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -232,20 +249,24 @@ window.onload = wrap_img;
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>  
         
         <span class="n">Scanner</span> <span class="n">input</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>   
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;How many classes are you taking this Trimester/Semester?&quot;</span><span class="p">);</span>
-        <span class="kt">int</span> <span class="n">classes</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+        
         <span class="n">String</span> <span class="n">letterGrades</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
         <span class="kt">double</span> <span class="n">weight</span><span class="p">;</span>
         <span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="mf">0.00</span><span class="p">;</span>
         <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="kt">double</span> <span class="n">classes</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
         
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Number of classes you are taking this trimester: \n&quot;</span><span class="p">);</span>
+        
+        <span class="n">classes</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
      
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">classes</span><span class="p">);</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">classes</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        
             <span class="n">Scanner</span> <span class="n">input2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
-            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;What is your Grade in Period &quot;</span> <span class="o">+</span> <span class="n">num</span> <span class="o">+</span> <span class="s">&quot;?&quot;</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;What is your Grade in Period &quot;</span> <span class="o">+</span> <span class="n">num</span> <span class="o">+</span> <span class="s">&quot;? ---&gt; &quot;</span><span class="p">);</span>
             <span class="n">letterGrades</span> <span class="o">=</span> <span class="n">input2</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span>
-            <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">letterGrades</span> <span class="o">+</span> <span class="s">&quot;\n&quot;</span><span class="p">);</span>
+            
     
             <span class="k">if</span> <span class="p">(</span><span class="n">letterGrades</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">)){</span>
             <span class="n">weight</span> <span class="o">=</span> <span class="mf">4.00</span><span class="p">;</span> 
@@ -268,14 +289,17 @@ window.onload = wrap_img;
             <span class="n">sum</span> <span class="o">+=</span> <span class="n">weight</span><span class="p">;</span>
     
         <span class="p">}</span>
+
+        <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
     
         <span class="p">}</span>
     
         <span class="kt">double</span> <span class="n">GPA</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">/</span> <span class="n">classes</span><span class="p">;</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">GPA</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Your Un-weighted GPA is:&quot;</span> <span class="o">+</span> <span class="n">GPA</span><span class="p">);</span>
     <span class="p">}</span>
 
 <span class="p">}</span>
+
 <span class="n">GPACalculator</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
 </pre></div>
 
@@ -289,7 +313,13 @@ window.onload = wrap_img;
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>How many classes are you taking this Trimester/Semester?What is your Grade in Period 1?What is your Grade in Period 2?What is your Grade in Period 3?What is your Grade in Period 4?What is your Grade in Period 5?2.2
+<pre>Number of classes you are taking this trimester: 
+What is your Grade in Period 1? ---&gt; A
+What is your Grade in Period 2? ---&gt; B
+What is your Grade in Period 3? ---&gt; B
+What is your Grade in Period 4? ---&gt; A
+What is your Grade in Period 5? ---&gt; C
+Your Un-weighted GPA is:3.2
 </pre>
 </div>
 </div>
