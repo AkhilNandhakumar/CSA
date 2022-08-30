@@ -21,6 +21,7 @@ This page will contain content to assist with my learning for College Board topi
 
 ## Unit 1: Primitive Types
 > Learn the fundamentals of Java, a programming language, as well as other foundational concepts for coding.
+### [PRIMITIVES LEARNINGS](https://akhilnandhakumar.github.io/CSA/jupyter/2022/08/25/primitives.html)
 
 - [Return to TOC](#table-of-contents)
 
