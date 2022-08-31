@@ -203,15 +203,17 @@ window.onload = wrap_img;
 
         <span class="k">switch</span> <span class="p">(</span><span class="n">selection</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// Switch or Switch/Case is Control Flow statement and is used to evaluate the user selection</span>
             <span class="k">case</span> <span class="mi">0</span><span class="p">:</span>  
-                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"Goodbye, World!"</span><span class="p">);</span>
+                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"Goodbye, World!\n"</span><span class="p">);</span>
                 <span class="n">quit</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
                 <span class="k">break</span><span class="p">;</span>
             <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"Hello, World!"</span><span class="p">);</span>
+                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"Hello, World!\n"</span><span class="p">);</span>
                 <span class="k">break</span><span class="p">;</span>
             <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
                 <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">COLORS</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>  <span class="c1">// loop through COLORS array</span>
                     <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">COLORS</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">ANSI</span><span class="o">]</span> <span class="o">+</span> <span class="n">COLORS</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">NAME</span><span class="o">]</span><span class="p">);</span>
+                    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"\n"</span><span class="p">);</span>
+                
                 <span class="k">break</span><span class="p">;</span>
             <span class="k">case</span> <span class="mi">3</span><span class="p">:</span>
                 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"Loading..."</span><span class="p">);</span>
@@ -224,6 +226,8 @@ window.onload = wrap_img;
                     <span class="p">}</span>
                     <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">COLORS</span><span class="o">[</span><span class="n">random</span><span class="o">][</span><span class="n">ANSI</span><span class="o">]</span> <span class="o">+</span> <span class="s">"#"</span><span class="p">);</span>
                 <span class="p">}</span>
+            
+                <span class="k">break</span><span class="p">;</span>
             <span class="k">case</span> <span class="mi">4</span><span class="p">:</span>
                 <span class="n">Scanner</span> <span class="n">input</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>   
             
@@ -273,7 +277,6 @@ window.onload = wrap_img;
             
                 <span class="kt">double</span> <span class="n">GPA</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">/</span> <span class="n">classes</span><span class="p">;</span>
                 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Your Un-weighted GPA is:"</span> <span class="o">+</span> <span class="n">GPA</span><span class="p">);</span>
-
                 <span class="k">break</span><span class="p">;</span>    
             <span class="k">default</span><span class="p">:</span>
                 <span class="c1">//Prints error message from console</span>
@@ -317,12 +320,12 @@ Choose from these choices
 4: Number of classes you are taking this trimester: 
 What is your Grade in Period 1? ---&gt; A
 What is your Grade in Period 2? ---&gt; B
-What is your Grade in Period 3? ---&gt; C
-What is your Grade in Period 4? ---&gt; B
-What is your Grade in Period 5? ---&gt; A
-Your Un-weighted GPA is:3.2
+What is your Grade in Period 3? ---&gt; B
+What is your Grade in Period 4? ---&gt; C
+Your Un-weighted GPA is:3.0
 
 0: Goodbye, World!
+
 </pre>
 </div>
 </div>
