@@ -14,11 +14,11 @@ search_exclude: true
   {% endfor %}
   {% assign categories = categories | sort_natural %} -->
 
-  <ul>
+  <!-- <ul>
   {% for category in categories %}
     <li><a href="#{{ category }}">{{ category }}</a></li>
   {% endfor %}
-  </ul>
+  </ul> -->
 
   {% for category in categories %}
       <h2 id ="{{ category }}"><i class="fas fa-tags category-tags-icon"></i></i> {{ category }}</h2>
