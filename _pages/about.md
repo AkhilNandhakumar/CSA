@@ -1,7 +1,8 @@
 ---
 layout: page
-title: About Me
+title: Personal Blog
 permalink: /about/
+toc: true
 ---
 
 # About Akhil Nandhakumar
