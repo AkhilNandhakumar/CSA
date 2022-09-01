@@ -4,6 +4,9 @@ title: Personal Blog
 permalink: /about/
 toc: true
 ---
+# Contents
+- [About](#about-akhil-nandhakumar)
+- [Interests and Achievements](#interests-activities-and-achievements)
 
 # About Akhil Nandhakumar
 
@@ -22,5 +25,5 @@ Outside of this class, my academic goals are to major in Aerospace Engineering a
 
 I love playing tennis with my brother Nakul, practicing piano, singing, and learning fun things on my own in my free time, like how to backflip and juggling. I like being outdoors and spending time with my family, and am excited for my future in college and in a career.
 
-# Extracurriculars and Achievements
+# Interests, Activities, and Achievements
 
