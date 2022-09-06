@@ -3,7 +3,7 @@
     
         "post0": {
             "title": "Week 2 Using Objects",
-            "content": "Code.org . Unit 1 Take-aways | . Java Using Objects and PBL design . Build a Console GUI focused on Java Math Class: LINK | Cloned Notes on Objects: LINK | . Extra! . Productive Blogging Progress: Using Tags to Organize Page | Dark Mode | .",
+            "content": "Code.org . Unit 1 Take-aways | . Java Using Objects and PBL design . Build a Console GUI focused on Java Math Class: LINK | Cloned Notes on Objects: LINK | . Extra! . Incorporating Feedback from Week 1: Using Tags Feature to Organize Page | .",
             "url": "https://akhilnandhakumar.github.io/CSA/tickets/2022/09/05/week-2.html",
             "relUrl": "/tickets/2022/09/05/week-2.html",
             "date": " • Sep 5, 2022"
@@ -25,7 +25,7 @@
     
         ,"post2": {
             "title": "Code.Org Unit 1",
-            "content": "",
+            "content": "// Creating a Class public class Painter . // Creating an Object called myPainter of Class Painter Painter myPainter = new Painter(); . // calling a method using dot notation myPainter.moveForward(); myPainter.turnRight(); myPainter.methodName(); . // Extends, known as inheritance public class PainterPlus extends Painter { public PainterPlus() { super(); } } . Extends / Inheritance . Extending another Class inherits all of the methods and attributes from that class. | Class being extended is called the super class | Class extending is called subclass | .",
             "url": "https://akhilnandhakumar.github.io/CSA/misc-notebooks/2022/09/05/codeorg-unit-1.html",
             "relUrl": "/misc-notebooks/2022/09/05/codeorg-unit-1.html",
             "date": " • Sep 5, 2022"
