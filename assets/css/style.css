@@ -327,7 +327,7 @@ img.emoji { display: inline !important; vertical-align: baseline !important; }
 
 .post figcaption { text-align: center; font-size: .8rem; font-style: italic; color: light-grey; }
 
-.page-content { -webkit-font-smoothing: antialiased !important; text-rendering: optimizeLegibility !important; font-family: 'Courier New', Courier, monospace !important; background-color: #fffed3; }
+.page-content { -webkit-font-smoothing: antialiased !important; text-rendering: optimizeLegibility !important; font-family: 'Courier New', Courier, monospace !important; }
 
 .post-content p, .post-content li { font-size: 20px; color: #515151; }
 
