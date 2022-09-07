@@ -12,3 +12,13 @@ _notebooks/.ipynb_checkpoints
 .netlify
 .tweet-cache
 __pycache__
+
+images/copied_from_nb/  # images folder
+_posts/2022-08-18-java-notebook.md
+_posts/2022-08-18-python-notebook.md
+_posts/2022-08-23-test.md
+_posts/2022-08-25-installation-checks.md
+_posts/2022-08-25-primitives.md
+_posts/2022-08-30-java-objects.md
+_posts/2022-08-31-my-menu-console.md
+_posts/2022-09-05-codeorg-unit-1.md
