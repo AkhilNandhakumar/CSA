@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      3 min read
     
 </span></p>
 
@@ -306,6 +306,78 @@ usage below.</li>
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>All previous conditionals evaluaate to false, num &gt;= 70
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="De-Morgan's-Law">De Morgan's Law<a class="anchor-link" href="#De-Morgan's-Law"> </a></h2><ul>
+<li>Complex conditional statements can be hard to evaluate when looking at "!" or "not" operators, and comparison operators, like &gt;, &lt;, &gt;=, &lt;=, ||, &amp;&amp;, and more</li>
+<li>De morgan's law helps by explaining how operators change when a "!" negation is present</li>
+</ul>
+<h3 id="Conversions:">Conversions:<a class="anchor-link" href="#Conversions:"> </a></h3><ul>
+<li>&lt; becomes &gt;=</li>
+<li><blockquote><p>becomes &lt;=</p>
+</blockquote>
+</li>
+<li>== becomes !=</li>
+<li>&lt;= becomes &gt;</li>
+<li><blockquote><p>= becomes &lt;</p>
+</blockquote>
+</li>
+<li>!= becomes ==</li>
+</ul>
+<p>Usage Example Below:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DeMorgans</span><span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arg</span><span class="p">){</span>
+        <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+        <span class="c1">// Confusing expression, difficult to look at and evaluate outcome</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)){</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;1. Condition is met&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// converting comparison operators and removing ! using DeMorgan&#39;s Law</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">3</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">){</span> 
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;2. By removing &#39;!&#39; negation and converting using DemMorgans law, this will also be true.&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">DeMorgans</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1. Condition is met
+2. By removing &#39;!&#39; negation and converting using DemMorgans law, this will also be true.
 </pre>
 </div>
 </div>
