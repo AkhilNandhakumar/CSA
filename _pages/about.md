@@ -10,7 +10,7 @@ toc: true
 
 # About Akhil Nandhakumar
 
-## [Link to Additional Info on Myself](www/nandhakumar.net/akhil/)
+## [Link to Additional Info on Myself](www.nandhakumar.net/akhil/)
 
 <img src="https://github.com/AkhilNandhakumar/CSA/blob/master/images/me_1.jpeg?raw=true" alt="Me and my brother Nakul!" width="200"/>
 -  Me and my brother Nakul!
