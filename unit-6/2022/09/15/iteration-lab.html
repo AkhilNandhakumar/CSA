@@ -546,12 +546,12 @@ Put those monkeys right to bed!
         <span class="p">},</span>
     <span class="p">};</span>
     
-    <span class="n">String</span> <span class="n">firstLine</span><span class="p">;</span>
+    <span class="n">String</span> <span class="n">firstLine</span><span class="p">;</span>  <span class="c1">// gets each body part as a single string</span>
     <span class="n">String</span> <span class="n">secondLine</span><span class="p">;</span>
     <span class="n">String</span> <span class="n">thirdLine</span><span class="p">;</span>
     <span class="n">String</span> <span class="n">fourthLine</span><span class="p">;</span>
 
-    <span class="c1">// determining body parts</span>
+    <span class="c1">// method to distinguish body parts</span>
     <span class="kd">public</span> <span class="nf">Monkey</span><span class="p">()</span> <span class="p">{</span>
         <span class="n">firstLine</span> <span class="o">=</span> <span class="n">monkey</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span><span class="p">;</span>
         <span class="n">secondLine</span> <span class="o">=</span> <span class="n">monkey</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
@@ -567,10 +567,10 @@ Put those monkeys right to bed!
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">fourthLine</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MonkeyPrint</span> <span class="p">{</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MonkeyPrint</span> <span class="p">{</span>    <span class="c1">// main method to print monkey as an object</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">Monkey</span> <span class="n">monkey</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Monkey</span><span class="p">();</span>
-        <span class="n">monkey</span><span class="p">.</span><span class="na">getMonkey</span><span class="p">();</span>
+        <span class="n">Monkey</span> <span class="n">monkey</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Monkey</span><span class="p">();</span>    <span class="c1">// creates the monkey object from the monkey class</span>
+        <span class="n">monkey</span><span class="p">.</span><span class="na">getMonkey</span><span class="p">();</span>   <span class="c1">// runs getmonkey method to print the monkey</span>
     <span class="p">}</span>
         
 <span class="p">}</span>
