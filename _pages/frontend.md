@@ -15,30 +15,28 @@ toc: true
   </tr>
   </thead>
   <tbody id="result">
-    <!-- javascript generated data -->
   </tbody>
 </table>
 
-<!-- Script is layed out in a sequence (no function) and will execute when page is loaded -->
+
 <script>
-  // prepare HTML result container for new output
   const resultContainer = document.getElementById("result");
 
-   // define a function to hold data for each team member
+   // function holds data for players
     function Player(name, nationality, rank) {
         this.name = name;
         this.nationality = nationality;
         this.rank = rank;
     }
 
-    // define a JSON conversion "method" associated with Student
+    // json conversion function
     Player.prototype.toJSON = function() {
         const obj = {name: this.name, nationality: this.nationality, rank: this.rank};
-        const json = JSON.stringify(obj);  // json/string is useful when passing data on internet
+        const json = JSON.stringify(obj);
         return json;
     }
 
-    // define array of students
+    // list of players
     var list = [ 
         new Player( "Spain", "#1", "Carlos Alcaraz Garfia"),
         new Player( "Russia", "#4", "Danil Medvedev"),
@@ -49,36 +47,35 @@ toc: true
         new Player( "Test", "#10", "Test")
     ];
   
-    // define a classroom and build Classroom objects and json
     function PlayerClass(players){
-        // add each Student to Classroom
         this.PlayerClass = players;
-        // build json/string format of Classroom
         this.json = [];
         this.PlayerClass.forEach(players => this.json.push(players.toJSON()));
     }
   
-    // make a CompSci classroom
+    // creates playerlist object
     playerlist = new PlayerClass(list);
 
+// javascript variables and methods to build html using previous data
+
     for (const row of playerlist.PlayerClass) {
-        // tr for each row
+
         const tr = document.createElement("tr");
-        // td for each column
+
         const name = document.createElement("td");
         const id = document.createElement("td");
         const rank = document.createElement("td");
-        // data is specific to the API
+
         name.innerHTML = row.name;
         id.innerHTML = row.nationality; 
         rank.innerHTML = row.rank; 
         
-        // this build td's into tr
+
         tr.appendChild(rank);
         tr.appendChild(name);
         tr.appendChild(id);
         
-        // add HTML to container
+
         resultContainer.appendChild(tr);
     }
 </script>
