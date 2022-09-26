@@ -4,21 +4,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Week 3 Hacks and Requirements Backend Development | Akhil’s CSA Blog</title>
+<title>Frontend Test | Akhil’s CSA Blog</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Week 3 Hacks and Requirements Backend Development" />
+<meta property="og:title" content="Frontend Test" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Week 3 Requirements" />
-<meta property="og:description" content="Week 3 Requirements" />
-<link rel="canonical" href="https://akhilnandhakumar.github.io/CSA/tickets/2022/09/11/week-3.html" />
-<meta property="og:url" content="https://akhilnandhakumar.github.io/CSA/tickets/2022/09/11/week-3.html" />
+<meta name="description" content="Blogging platform to document CSA notes, hacks, and test prep." />
+<meta property="og:description" content="Blogging platform to document CSA notes, hacks, and test prep." />
+<link rel="canonical" href="https://akhilnandhakumar.github.io/CSA/frontend/" />
+<meta property="og:url" content="https://akhilnandhakumar.github.io/CSA/frontend/" />
 <meta property="og:site_name" content="Akhil’s CSA Blog" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-09-11T00:00:00-05:00" />
+<meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Week 3 Hacks and Requirements Backend Development" />
+<meta property="twitter:title" content="Frontend Test" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-09-11T00:00:00-05:00","datePublished":"2022-09-11T00:00:00-05:00","description":"Week 3 Requirements","headline":"Week 3 Hacks and Requirements Backend Development","mainEntityOfPage":{"@type":"WebPage","@id":"https://akhilnandhakumar.github.io/CSA/tickets/2022/09/11/week-3.html"},"url":"https://akhilnandhakumar.github.io/CSA/tickets/2022/09/11/week-3.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Blogging platform to document CSA notes, hacks, and test prep.","headline":"Frontend Test","url":"https://akhilnandhakumar.github.io/CSA/frontend/"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/CSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://akhilnandhakumar.github.io/CSA/feed.xml" title="Akhil's CSA Blog" /><link rel="shortcut icon" type="image/x-icon" href="/CSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -70,67 +69,94 @@ window.onload = wrap_img;
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Week 3 Hacks and Requirements | Backend Development</h1><p class="page-description">Week 3 Requirements</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-09-11T00:00:00-05:00" itemprop="datePublished">
-        Sep 11, 2022
-      </time>
-       • <span class="read-time" title="Estimated read time">
-    
-    
-      1 min read
-    
-</span></p>
+    <h1 class="post-title">Frontend Test</h1>
+  </header>
 
-    
-      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
-      
-        <a class="category-tags-link" href="/CSA/categories/#Tickets">Tickets</a>
+  <div class="post-content">
+    <!-- HTML table fragment for page -->
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Nationality</th>
+    <th>Rank</th>
+  </tr>
+  </thead>
+  <tbody id="result">
+    <!-- javascript generated data -->
+  </tbody>
+</table>
+
+<!-- Script is layed out in a sequence (no function) and will execute when page is loaded -->
+<script>
+  // prepare HTML result container for new output
+  const resultContainer = document.getElementById("result");
+
+   // define a function to hold data for each team member
+    function Player(name, nationality, rank) {
+        this.name = name;
+        this.nationality = nationality;
+        this.rank = rank;
+    }
+
+    // define a JSON conversion "method" associated with Student
+    Player.prototype.toJSON = function() {
+        const obj = {name: this.name, nationality: this.nationality, rank: this.rank};
+        const json = JSON.stringify(obj);  // json/string is useful when passing data on internet
+        return json;
+    }
+
+    // define array of students
+    var list = [ 
+        new Player( "Spain", "#1", "Carlos Alcaraz Garfia"),
+        new Player( "Russia", "#4", "Danil Medvedev"),
+        new Player( "Norway", "#2", "Casper Ruud"),
+        new Player( "Spain", "#3", "Rafael Nadal"),
+        new Player( "USA", "#2885893", "Akhil Nandhakumar"),
+        new Player( "USA", "GOAT", "Mr. Mort"),
+        new Player( "Test", "#10", "Test")
+    ];
+  
+    // define a classroom and build Classroom objects and json
+    function PlayerClass(players){
+        // add each Student to Classroom
+        this.PlayerClass = players;
+        // build json/string format of Classroom
+        this.json = [];
+        this.PlayerClass.forEach(players => this.json.push(players.toJSON()));
+    }
+  
+    // make a CompSci classroom
+    playerlist = new PlayerClass(list);
+
+    for (const row of playerlist.PlayerClass) {
+        // tr for each row
+        const tr = document.createElement("tr");
+        // td for each column
+        const name = document.createElement("td");
+        const id = document.createElement("td");
+        const rank = document.createElement("td");
+        // data is specific to the API
+        name.innerHTML = row.name;
+        id.innerHTML = row.nationality; 
+        rank.innerHTML = row.rank; 
         
-      
-      </p>
-    
+        // this build td's into tr
+        tr.appendChild(rank);
+        tr.appendChild(name);
+        tr.appendChild(id);
+        
+        // add HTML to container
+        resultContainer.appendChild(tr);
+    }
+</script>
 
-    </header>
 
-  <div class="post-content e-content" itemprop="articleBody">
-    <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#deployment">Deployment</a></li>
-<li class="toc-entry toc-h2"><a href="#lesson-on-conditionals">Lesson On Conditionals</a></li>
-<li class="toc-entry toc-h1"><a href="#focushabitsproductive-blogging">Focus/Habits/Productive Blogging</a></li>
-</ul><h2 id="deployment">
-<a class="anchor" href="#deployment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Deployment</h2>
-<ul>
-  <li>Deployed Site: <a href="akhilcodingsociety.tk">akhilcodingsociety.tk</a>
-</li>
-</ul>
+  </div>
 
-<h2 id="lesson-on-conditionals">
-<a class="anchor" href="#lesson-on-conditionals" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lesson On Conditionals</h2>
-<ul>
-  <li>Link: <a href="https://akhilnandhakumar.github.io/CSA/unit-3/2022/09/11/conditionals-lesson.html">Lesson on Conditionals</a>
-</li>
-</ul>
-
-<h1 id="focushabitsproductive-blogging">
-<a class="anchor" href="#focushabitsproductive-blogging" aria-hidden="true"><span class="octicon octicon-link"></span></a>Focus/Habits/Productive Blogging</h1>
-<ul>
-  <li>About Page and site about myself: <a href="https://akhilnandhakumar.github.io/CSA/about/">LINK</a>
-</li>
-  <li>Fastpages running locally: <a href="http://0.0.0.0:4000/CSA/">Localhost</a>
-</li>
-</ul>
-
-  </div><!-- from https://github.com/utterance/utterances -->
-<script src="https://utteranc.es/client.js"
-        repo="AkhilNandhakumar/CSA"
-        issue-term="title"
-        label="blogpost-comment"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script><a class="u-url" href="/CSA/tickets/2022/09/11/week-3.html" hidden></a>
 </article>
 
       </div>
