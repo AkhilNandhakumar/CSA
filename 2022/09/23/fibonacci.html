@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      11 min read
+      8 min read
     
 </span></p>
 
@@ -137,6 +137,10 @@ window.onload = wrap_img;
 <h2 id="Base-Code">
 <a class="anchor" href="#Base-Code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Base Code<a class="anchor-link" href="#Base-Code"> </a>
 </h2>
+<ul>
+<li>modified so that init is abstract, no code/runtime from init method</li>
+</ul>
+
 </div>
 </div>
 </div>
@@ -147,12 +151,18 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>  
+<div class=" highlight hl-java"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * Creator: Nighthawk Coding Society</span>
+<span class="cm"> * Mini Lab Name: Fibonacci sequence, featuring a Stream Algorithm</span>
+<span class="cm"> * </span>
+<span class="cm">*/</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>  
 <span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="p">;</span>
 <span class="kn">import</span> <span class="nn">java.util.stream.Stream</span><span class="p">;</span>
 
 <span class="cm">/* Objective will require changing to abstract class with one or more abstract methods below */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Fibo</span> <span class="p">{</span>
+<span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Fibo</span> <span class="p">{</span>
     <span class="n">String</span> <span class="n">name</span><span class="p">;</span>  <span class="c1">// name or title of method</span>
     <span class="kt">int</span> <span class="n">size</span><span class="p">;</span>  <span class="c1">// nth sequence</span>
     <span class="kt">int</span> <span class="n">hashID</span><span class="p">;</span>  <span class="c1">// counter for hashIDs in hash map</span>
@@ -180,19 +190,7 @@ window.onload = wrap_img;
         <span class="k">this</span><span class="p">.</span><span class="na">init</span><span class="p">();</span>
     <span class="p">}</span>
 
-    <span class="cm">/*</span>
-<span class="cm">     This Method should be "abstract"</span>
-<span class="cm">     Leave method as protected, as it is only authorized to extender of the class</span>
-<span class="cm">     Make new class that extends and defines init()</span>
-<span class="cm">     Inside references within this class would change from this to super</span>
-<span class="cm">     Repeat process using for, while, recursion</span>
-<span class="cm">     */</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Stream"</span><span class="p">;</span>
-        <span class="n">Stream</span><span class="p">.</span><span class="na">iterate</span><span class="p">(</span><span class="k">new</span> <span class="kt">long</span><span class="o">[]</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="n">f</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="kt">long</span><span class="o">[]</span><span class="p">{</span><span class="n">f</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span> <span class="n">f</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="n">f</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">})</span>
-            <span class="p">.</span><span class="na">limit</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">size</span><span class="p">)</span>
-            <span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">f</span> <span class="o">-&gt;</span> <span class="k">this</span><span class="p">.</span><span class="na">setData</span><span class="p">(</span><span class="n">f</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">)</span> <span class="p">);</span>
-    <span class="p">}</span>
+    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">init</span><span class="p">();</span>
 
     <span class="cm">/*</span>
 <span class="cm">     Number is added to fibonacci sequence, current state of "list" is added to hash for hashID "num"</span>
@@ -228,56 +226,10 @@ window.onload = wrap_img;
             <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"fibonacci Sequence "</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s">" = "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">getNthSeq</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>
         <span class="p">}</span>
     <span class="p">}</span>
-
-    <span class="cm">/*</span>
-<span class="cm">    Tester class method.  If this becomes abstract you will not be able to test it directly ...</span>
-<span class="cm">    Change this method to  call "main" class of each of the extended classes</span>
-<span class="cm">     */</span>
-    <span class="kd">static</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">Fibo</span> <span class="n">fib</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Fibo</span><span class="p">();</span>
-        <span class="n">fib</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
-    <span class="p">}</span>
 <span class="p">}</span>
-
-<span class="n">Fibo</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Init method = Stream
-fibonacci Number 20 = 4181
-fibonacci Sequence 1 = [0]
-fibonacci Sequence 2 = [0, 1]
-fibonacci Sequence 3 = [0, 1, 1]
-fibonacci Sequence 4 = [0, 1, 1, 2]
-fibonacci Sequence 5 = [0, 1, 1, 2, 3]
-fibonacci Sequence 6 = [0, 1, 1, 2, 3, 5]
-fibonacci Sequence 7 = [0, 1, 1, 2, 3, 5, 8]
-fibonacci Sequence 8 = [0, 1, 1, 2, 3, 5, 8, 13]
-fibonacci Sequence 9 = [0, 1, 1, 2, 3, 5, 8, 13, 21]
-fibonacci Sequence 10 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
-fibonacci Sequence 11 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
-fibonacci Sequence 12 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
-fibonacci Sequence 13 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144]
-fibonacci Sequence 14 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
-fibonacci Sequence 15 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377]
-fibonacci Sequence 16 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610]
-fibonacci Sequence 17 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987]
-fibonacci Sequence 18 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597]
-fibonacci Sequence 19 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584]
-fibonacci Sequence 20 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181]
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
