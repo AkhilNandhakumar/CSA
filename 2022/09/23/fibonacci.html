@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      6 min read
     
 </span></p>
 
@@ -174,7 +174,7 @@ window.onload = wrap_img;
 <span class="cm">     @param: none</span>
 <span class="cm">     */</span>
     <span class="kd">public</span> <span class="nf">Fibo</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span> <span class="c1">// telescope to avoid code duplication, using default as 20</span>
+        <span class="k">this</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// telescope to avoid code duplication, using default as 20</span>
     <span class="p">}</span>
 
     <span class="cm">/*</span>
@@ -291,7 +291,7 @@ window.onload = wrap_img;
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Init method = For
-fibonacci Number 20 = 4181
+fibonacci Number 10 = 34
 fibonacci Sequence 1 = [0]
 fibonacci Sequence 2 = [0, 1]
 fibonacci Sequence 3 = [0, 1, 1]
@@ -302,16 +302,6 @@ fibonacci Sequence 7 = [0, 1, 1, 2, 3, 5, 8]
 fibonacci Sequence 8 = [0, 1, 1, 2, 3, 5, 8, 13]
 fibonacci Sequence 9 = [0, 1, 1, 2, 3, 5, 8, 13, 21]
 fibonacci Sequence 10 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
-fibonacci Sequence 11 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
-fibonacci Sequence 12 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
-fibonacci Sequence 13 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144]
-fibonacci Sequence 14 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
-fibonacci Sequence 15 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377]
-fibonacci Sequence 16 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610]
-fibonacci Sequence 17 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987]
-fibonacci Sequence 18 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597]
-fibonacci Sequence 19 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584]
-fibonacci Sequence 20 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181]
 </pre>
 </div>
 </div>
@@ -341,7 +331,7 @@ fibonacci Sequence 20 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377,
 <div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FiboRecursive</span> <span class="kd">extends</span> <span class="n">Fibo</span><span class="p">{</span>
 
     <span class="kd">public</span> <span class="nf">FiboRecursive</span><span class="p">()</span> <span class="p">{</span>
-        <span class="kd">super</span><span class="p">();</span>
+        <span class="kd">super</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="kd">public</span> <span class="nf">FiboRecursive</span><span class="p">(</span><span class="kt">int</span> <span class="n">nth</span><span class="p">)</span> <span class="p">{</span>
@@ -383,27 +373,12 @@ fibonacci Sequence 20 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377,
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Init method = Recursion
-fibonacci Number 20 = 4181
+fibonacci Number 5 = 3
 fibonacci Sequence 1 = [0]
 fibonacci Sequence 2 = [0, 1]
 fibonacci Sequence 3 = [0, 1, 1]
 fibonacci Sequence 4 = [0, 1, 1, 2]
 fibonacci Sequence 5 = [0, 1, 1, 2, 3]
-fibonacci Sequence 6 = [0, 1, 1, 2, 3, 5]
-fibonacci Sequence 7 = [0, 1, 1, 2, 3, 5, 8]
-fibonacci Sequence 8 = [0, 1, 1, 2, 3, 5, 8, 13]
-fibonacci Sequence 9 = [0, 1, 1, 2, 3, 5, 8, 13, 21]
-fibonacci Sequence 10 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
-fibonacci Sequence 11 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
-fibonacci Sequence 12 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
-fibonacci Sequence 13 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144]
-fibonacci Sequence 14 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
-fibonacci Sequence 15 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377]
-fibonacci Sequence 16 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610]
-fibonacci Sequence 17 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987]
-fibonacci Sequence 18 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597]
-fibonacci Sequence 19 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584]
-fibonacci Sequence 20 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181]
 </pre>
 </div>
 </div>
@@ -433,7 +408,7 @@ fibonacci Sequence 20 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377,
 <div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FiboWhile</span> <span class="kd">extends</span> <span class="n">Fibo</span> <span class="p">{</span>
     
     <span class="kd">public</span> <span class="nf">FiboWhile</span><span class="p">()</span> <span class="p">{</span>
-        <span class="kd">super</span><span class="p">();</span>
+        <span class="kd">super</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="kd">public</span> <span class="nf">FiboWhile</span><span class="p">(</span><span class="kt">int</span> <span class="n">nth</span><span class="p">)</span> <span class="p">{</span>
