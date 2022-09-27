@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      8 min read
+      9 min read
     
 </span></p>
 
@@ -254,9 +254,16 @@ window.onload = wrap_img;
     <div class="input_area">
 <div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FiboFor</span> <span class="kd">extends</span> <span class="n">Fibo</span> <span class="p">{</span>
     
+    <span class="kd">public</span> <span class="nf">FiboFor</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="nf">FiboFor</span><span class="p">(</span><span class="kt">int</span> <span class="n">nth</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">(</span><span class="n">nth</span><span class="p">);</span>
+    <span class="p">}</span>
 
     <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"For"</span><span class="p">;</span>
+        <span class="kd">super</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"For"</span><span class="p">;</span>
         <span class="kt">long</span> <span class="n">limit</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">size</span><span class="p">;</span>
         <span class="c1">// for loops are likely the most common iteration structure, all the looping facts are in one line</span>
         <span class="k">for</span> <span class="p">(</span><span class="kt">long</span><span class="o">[]</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">long</span><span class="o">[]</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">};</span> <span class="n">limit</span><span class="o">--</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">long</span><span class="o">[]</span><span class="p">{</span><span class="n">f</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span> <span class="n">f</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="n">f</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">})</span>
@@ -333,6 +340,14 @@ fibonacci Sequence 20 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377,
     <div class="input_area">
 <div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FiboRecursive</span> <span class="kd">extends</span> <span class="n">Fibo</span><span class="p">{</span>
 
+    <span class="kd">public</span> <span class="nf">FiboRecursive</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="nf">FiboRecursive</span><span class="p">(</span><span class="kt">int</span> <span class="n">nth</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">(</span><span class="n">nth</span><span class="p">);</span>
+    <span class="p">}</span>
+
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">recursion</span><span class="p">(</span><span class="kt">long</span> <span class="n">limit</span><span class="p">,</span> <span class="kt">long</span><span class="o">[]</span> <span class="n">f</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">limit</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
         <span class="k">this</span><span class="p">.</span><span class="na">setData</span><span class="p">(</span><span class="n">f</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">);</span>
@@ -340,7 +355,7 @@ fibonacci Sequence 20 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377,
     <span class="p">}</span>
 
     <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Recursion"</span><span class="p">;</span>
+        <span class="kd">super</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Recursion"</span><span class="p">;</span>
         <span class="kt">long</span> <span class="n">limit</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">size</span><span class="p">;</span>
         <span class="kt">long</span><span class="o">[]</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">long</span><span class="o">[]</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">};</span>
 
@@ -417,9 +432,16 @@ fibonacci Sequence 20 = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377,
     <div class="input_area">
 <div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FiboWhile</span> <span class="kd">extends</span> <span class="n">Fibo</span> <span class="p">{</span>
     
+    <span class="kd">public</span> <span class="nf">FiboWhile</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="nf">FiboWhile</span><span class="p">(</span><span class="kt">int</span> <span class="n">nth</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">(</span><span class="n">nth</span><span class="p">);</span>
+    <span class="p">}</span>
 
     <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"While"</span><span class="p">;</span>
+        <span class="kd">super</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"While"</span><span class="p">;</span>
         <span class="kt">long</span> <span class="n">limit</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">size</span><span class="p">;</span>
         <span class="kt">long</span><span class="o">[]</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">long</span><span class="o">[]</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">};</span>
         <span class="k">while</span> <span class="p">(</span><span class="n">limit</span><span class="o">--</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
