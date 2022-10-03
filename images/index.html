@@ -131,7 +131,7 @@ window.onload = wrap_img;
        <span class="n">BufferedImage</span> <span class="n">img</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>  <span class="c1">// buffer type </span>
         <span class="k">try</span> <span class="p">{</span>
             <span class="c1">// Name of file and directories</span>
-            <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"Java-Logo"</span><span class="p">;</span>
+            <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"logo"</span><span class="p">;</span>
             <span class="n">String</span> <span class="n">in</span> <span class="o">=</span> <span class="s">"images/"</span><span class="p">;</span>
             <span class="n">String</span> <span class="n">out</span> <span class="o">=</span> <span class="s">"images/tmp/"</span><span class="p">;</span>
 
@@ -141,7 +141,7 @@ window.onload = wrap_img;
 
             <span class="c1">// ImageIO Image write to gif in Java</span>
             <span class="c1">// Documentation https://docs.oracle.com/javase/tutorial/2d/images/index.html</span>
-            <span class="n">ImageIO</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="s">"gif"</span><span class="p">,</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">".gif"</span><span class="p">)</span> <span class="p">);</span>  <span class="c1">// write buffer to gif</span>
+            <span class="n">ImageIO</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="s">"jpeg"</span><span class="p">,</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">".jpeg"</span><span class="p">)</span> <span class="p">);</span>  <span class="c1">// write buffer to gif</span>
 
         <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
               <span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
@@ -158,34 +158,6 @@ window.onload = wrap_img;
 
 <div class="output_wrapper">
 <div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>images/Java-Logo.png
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>javax.imageio.IIOException: Can't read input file!
-	at java.desktop/javax.imageio.ImageIO.read(ImageIO.java:1310)
-	at REPL.$JShell$16G$ImageIOTest.main($JShell$16G.java:49)
-	at REPL.$JShell$47.do_it$($JShell$47.java:35)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at io.github.spencerpark.ijava.execution.IJavaExecutionControl.lambda$execute$1(IJavaExecutionControl.java:95)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-</pre>
-</div>
-</div>
 
 <div class="output_area">
 
