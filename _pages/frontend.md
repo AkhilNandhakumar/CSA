@@ -82,22 +82,4 @@ toc: true
         resultContainer.appendChild(tr);
     }
 
-// API ------------------------------------------------
-    
-async function api() {
-
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': 'af654d789amshce4b35d071f3bd2p1c0cc8jsn8db3aa6a8acc',
-		'X-RapidAPI-Host': 'ultimate-tennis1.p.rapidapi.com'
-	}
-};
-
-  return fetch('https://ultimate-tennis1.p.rapidapi.com/live_scores', options).then(response => response.json())
-}
-
-const x  = await api();
-console.log(x);
-
 </script>
