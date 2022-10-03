@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      8 min read
+      9 min read
     
 </span></p>
 
@@ -278,7 +278,7 @@ window.onload = wrap_img;
         <span class="n">BufferedImage</span> <span class="n">img</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
         <span class="n">Image</span> <span class="n">resizedImg</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>  
 
-        <span class="kt">int</span> <span class="n">width</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">*</span> <span class="p">(</span><span class="n">scale</span><span class="o">/</span><span class="mf">100.0</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">);</span>
+        <span class="kt">int</span> <span class="n">width</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">*</span> <span class="p">(</span><span class="n">scale</span><span class="o">/</span><span class="mf">50.0</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">);</span>
         <span class="kt">int</span> <span class="n">height</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">height</span> <span class="o">*</span> <span class="p">(</span><span class="n">scale</span><span class="o">/</span><span class="mf">100.0</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">);</span>
 
         <span class="k">try</span> <span class="p">{</span>
@@ -383,6 +383,12 @@ window.onload = wrap_img;
         <span class="n">pumpkin</span><span class="p">.</span><span class="na">resize</span><span class="p">(</span><span class="mi">33</span><span class="p">);</span>
         <span class="n">pumpkin</span><span class="p">.</span><span class="na">printStats</span><span class="p">(</span><span class="s">"Scaled"</span><span class="p">);</span>
         <span class="n">pumpkin</span><span class="p">.</span><span class="na">convertToAscii</span><span class="p">();</span>
+
+        <span class="n">Pics</span> <span class="n">python</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pics</span><span class="p">(</span><span class="s">"pythonlogo"</span><span class="p">,</span> <span class="s">"png"</span><span class="p">);</span>
+        <span class="n">python</span><span class="p">.</span><span class="na">printStats</span><span class="p">(</span><span class="s">"Original"</span><span class="p">);</span>
+        <span class="n">python</span><span class="p">.</span><span class="na">resize</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+        <span class="n">python</span><span class="p">.</span><span class="na">printStats</span><span class="p">(</span><span class="s">"Scaled"</span><span class="p">);</span>
+        <span class="n">python</span><span class="p">.</span><span class="na">convertToAscii</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
 <span class="n">Pics</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
@@ -399,9 +405,11 @@ window.onload = wrap_img;
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Original: 499298 389x413  images/MonaLisa.png
-Scaled: 55625 128x136  images/tmp/MonaLisa.png
+Scaled: 111833 257x136  images/tmp/MonaLisa.png
 Original: 39392 302x265  images/pumpkin.png
-Scaled: 10497 100x87  images/tmp/pumpkin.png
+Scaled: 16772 199x87  images/tmp/pumpkin.png
+Original: 33539 1024x1024  images/pythonlogo.png
+Scaled: 5225 246x123  images/tmp/pythonlogo.png
 </pre>
 </div>
 </div>
@@ -649,6 +657,14 @@ Scaled: 10497 100x87  images/tmp/pumpkin.png
 <pre>Scaled Ascii: 499298 389x413  images/MonaLisa.png
 Scaled Ascii: 39392 302x265  images/pumpkin.png
 </pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">The Kernel crashed while executing code in the the current cell or a previous cell. Please review the code in the cell(s) to identify a possible cause of the failure. Click &lt;a href='https://aka.ms/vscodeJupyterKernelCrash'&gt;here&lt;/a&gt; for more info. View Jupyter &lt;a href='command:jupyter.viewOutput'&gt;log&lt;/a&gt; for further details.</span></pre>
 </div>
 </div>
 
