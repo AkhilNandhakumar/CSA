@@ -131,7 +131,7 @@ window.onload = wrap_img;
        <span class="n">BufferedImage</span> <span class="n">img</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>  <span class="c1">// buffer type </span>
         <span class="k">try</span> <span class="p">{</span>
             <span class="c1">// Name of file and directories</span>
-            <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"logo"</span><span class="p">;</span>
+            <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"MonaLisa"</span><span class="p">;</span>
             <span class="n">String</span> <span class="n">in</span> <span class="o">=</span> <span class="s">"images/"</span><span class="p">;</span>
             <span class="n">String</span> <span class="n">out</span> <span class="o">=</span> <span class="s">"images/tmp/"</span><span class="p">;</span>
 
@@ -141,7 +141,7 @@ window.onload = wrap_img;
 
             <span class="c1">// ImageIO Image write to gif in Java</span>
             <span class="c1">// Documentation https://docs.oracle.com/javase/tutorial/2d/images/index.html</span>
-            <span class="n">ImageIO</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="s">"jpeg"</span><span class="p">,</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">".jpeg"</span><span class="p">)</span> <span class="p">);</span>  <span class="c1">// write buffer to gif</span>
+            <span class="n">ImageIO</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="s">"gif"</span><span class="p">,</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">".gif"</span><span class="p">)</span> <span class="p">);</span>  <span class="c1">// write buffer to gif</span>
 
         <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
               <span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
@@ -368,11 +368,17 @@ window.onload = wrap_img;
 
     <span class="c1">// tester/driver</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
-        <span class="n">Pics</span> <span class="n">logo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pics</span><span class="p">(</span><span class="s">"Java-Logo"</span><span class="p">,</span> <span class="s">"png"</span><span class="p">);</span>
-        <span class="n">logo</span><span class="p">.</span><span class="na">printStats</span><span class="p">(</span><span class="s">"Original"</span><span class="p">);</span>
-        <span class="n">logo</span><span class="p">.</span><span class="na">resize</span><span class="p">(</span><span class="mi">33</span><span class="p">);</span>
-        <span class="n">logo</span><span class="p">.</span><span class="na">printStats</span><span class="p">(</span><span class="s">"Scaled"</span><span class="p">);</span>
-        <span class="n">logo</span><span class="p">.</span><span class="na">convertToAscii</span><span class="p">();</span>
+        <span class="n">Pics</span> <span class="n">monaLisa</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pics</span><span class="p">(</span><span class="s">"MonaLisa"</span><span class="p">,</span> <span class="s">"png"</span><span class="p">);</span>
+        <span class="n">monaLisa</span><span class="p">.</span><span class="na">printStats</span><span class="p">(</span><span class="s">"Original"</span><span class="p">);</span>
+        <span class="n">monaLisa</span><span class="p">.</span><span class="na">resize</span><span class="p">(</span><span class="mi">33</span><span class="p">);</span>
+        <span class="n">monaLisa</span><span class="p">.</span><span class="na">printStats</span><span class="p">(</span><span class="s">"Scaled"</span><span class="p">);</span>
+        <span class="n">monaLisa</span><span class="p">.</span><span class="na">convertToAscii</span><span class="p">();</span>
+
+        <span class="n">Pics</span> <span class="n">pumpkin</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pics</span><span class="p">(</span><span class="s">"pumpkin"</span><span class="p">,</span> <span class="s">"png"</span><span class="p">);</span>
+        <span class="n">pumpkin</span><span class="p">.</span><span class="na">printStats</span><span class="p">(</span><span class="s">"Original"</span><span class="p">);</span>
+        <span class="n">pumpkin</span><span class="p">.</span><span class="na">resize</span><span class="p">(</span><span class="mi">33</span><span class="p">);</span>
+        <span class="n">pumpkin</span><span class="p">.</span><span class="na">printStats</span><span class="p">(</span><span class="s">"Scaled"</span><span class="p">);</span>
+        <span class="n">pumpkin</span><span class="p">.</span><span class="na">convertToAscii</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
 <span class="n">Pics</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
@@ -388,22 +394,11 @@ window.onload = wrap_img;
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Original: 0 0x0  images/Java-Logo.png
-Scaled: 0 0x0  images/Java-Logo.png
-ASCII out file create error: java.io.FileNotFoundException: images/tmp/Java-Logo.txt (No such file or directory)
+<pre>Original: 499298 389x413  images/MonaLisa.png
+Scaled: 55625 128x136  images/tmp/MonaLisa.png
+Original: 39392 302x265  images/pumpkin.png
+Scaled: 10497 100x87  images/tmp/pumpkin.png
 </pre>
-</div>
-</div>
-
-<div class="output_area">
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">java.lang.NullPointerException: Cannot invoke "java.awt.image.BufferedImage.getHeight()" because "&lt;local1&gt;" is null</span>
-<span class="ansi-red-intense-fg ansi-bold">	at Pics.convertToAscii(#41:1)</span>
-<span class="ansi-red-intense-fg ansi-bold">	at Pics.main(#41:1)</span>
-<span class="ansi-red-intense-fg ansi-bold">	at .(#44:1)</span></pre>
 </div>
 </div>
 
