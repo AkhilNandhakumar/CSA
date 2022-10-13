@@ -30,7 +30,7 @@ permalink: /api/frontend
 
   // prepare fetch urls
   // const url = "https://flask.nighthawkcodingsociety.com/api/jokes";
-  const url = "akhilcodingsociety.tk/api/recipes/";
+  const url = "http://akhilcodingsociety.tk/api/recipes";
   const get_url = url +"/";
   const like_url = url + "/like/";  // haha reaction
   const jeer_url = url + "/jeer/";  // boohoo reaction
@@ -67,7 +67,7 @@ permalink: /api/frontend
             
             // td for joke cell
             const joke = document.createElement("td");
-              joke.innerHTML = row.id + ". " + row.recipe;  // add fetched data to innerHTML
+              joke.innerHTML = row.id + ". " + row.joke;  // add fetched data to innerHTML
 
             // td for haha cell with onclick actions
             const haha = document.createElement("td");
