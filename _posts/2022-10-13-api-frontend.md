@@ -36,6 +36,7 @@ permalink: /api/frontend
   const jeer_url = url + "/jeer/";  // boohoo reaction
 
   // prepare fetch GET options
+  
   const options = {
     method: 'GET', // *GET, POST, PUT, DELETE, etc.
     mode: 'cors', // no-cors, *cors, same-origin
