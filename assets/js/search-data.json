@@ -14,7 +14,7 @@
     
         ,"post1": {
             "title": "Fetch of Backend API",
-            "content": "Recipe Yummy Yucky .",
+            "content": ". Recipe Yummy Yucky .",
             "url": "https://akhilnandhakumar.github.io/CSA/api/frontend",
             "relUrl": "/api/frontend",
             "date": " • Oct 13, 2022"
