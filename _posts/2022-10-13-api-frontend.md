@@ -5,6 +5,8 @@ description: very cool epic frontend
 permalink: /api/frontend
 ---
 <!-- HTML table fragment for page -->
+<head><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></head>
+
 <table>
   <thead>
   <tr>
