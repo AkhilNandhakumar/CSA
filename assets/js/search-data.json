@@ -25,7 +25,7 @@
     
         ,"post2": {
             "title": "Unit 4 Homework",
-            "content": "Caeser Cipher Hack . public class CaesarCipher { public static void main(String[] args) { String[] letters = {&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;, &quot;h&quot;, &quot;i&quot;, &quot;j&quot;, &quot;k&quot;, &quot;l&quot;, &quot;m&quot;, &quot;n&quot;, &quot;o&quot;, &quot;p&quot;, &quot;q&quot;, &quot;r&quot;, &quot;s&quot;, &quot;t&quot;, &quot;u&quot;, &quot;v&quot;, &quot;w&quot;, &quot;x&quot;, &quot;y&quot;, &quot;z&quot;}; String message1 = &quot;Kfzb gly!&quot;; String message2 = &quot;zlab zlab zlab&quot;; String message3 = &quot;prmbozxifcoxdfifpqfzbumfxifalzflrp&quot;; System.out.println(letters); } } CaesarCipher.main(null); . [Ljava.lang.String;@11851d17 .",
+            "content": "Caeser Cipher Hack . public class CaesarCipher { public static void main(String[] args) { String[] letters = {&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;, &quot;h&quot;, &quot;i&quot;, &quot;j&quot;, &quot;k&quot;, &quot;l&quot;, &quot;m&quot;, &quot;n&quot;, &quot;o&quot;, &quot;p&quot;, &quot;q&quot;, &quot;r&quot;, &quot;s&quot;, &quot;t&quot;, &quot;u&quot;, &quot;v&quot;, &quot;w&quot;, &quot;x&quot;, &quot;y&quot;, &quot;z&quot;}; String message1 = &quot;Kfzb gly!&quot;; String message2 = &quot;zlab zlab zlab&quot;; String message3 = &quot;prmbozxifcoxdfifpqfzbumfxifalzflrp&quot;; } } CaesarCipher.main(null); . [a] .",
             "url": "https://akhilnandhakumar.github.io/CSA/unit-4/2022/10/22/cb4-hw.html",
             "relUrl": "/unit-4/2022/10/22/cb4-hw.html",
             "date": " • Oct 22, 2022"
