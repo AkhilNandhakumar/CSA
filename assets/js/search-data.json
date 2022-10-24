@@ -14,7 +14,7 @@
     
         ,"post1": {
             "title": "Unit 5 Homework",
-            "content": "2019 FRQ 2 Answer . public class StepTracker { private int totalSteps; private int minimumSteps; private int days; private int activeDays; public StepTracker(int min){ minimumSteps = min; totalSteps = 0; days = 0; activeDays = 0; } public void addDailySteps(int steps){ totalSteps += steps; days++; if (steps &gt;= minSteps){ activeDays++; } } public double averageSteps(){ if (days == 0){ return 0.0; } else{ return (double) totalSteps / numDays; } } public int getActiveDays(){ return days; } } .",
+            "content": "2019 FRQ 2 Answer . public class StepTracker { private int totalSteps; private int minimumSteps; private int days; private int activeDays; public StepTracker(int min){ minimumSteps = min; totalSteps = 0; days = 0; activeDays = 0; } public void addDailySteps(int steps){ totalSteps += steps; days++; if (steps &gt;= minSteps){ activeDays++; } } public double averageSteps(){ if (days == 0){ return 0.0; } else{ return (double) totalSteps / days; } } public int getActiveDays(){ return days; } } .",
             "url": "https://akhilnandhakumar.github.io/CSA/unit-5/2022/10/22/cb5-hw.html",
             "relUrl": "/unit-5/2022/10/22/cb5-hw.html",
             "date": " • Oct 22, 2022"
