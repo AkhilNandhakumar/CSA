@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Unit 5 - Writing Classes | Akhil’s CSA Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Unit 5 - Writing Classes" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documenting Learnings writing Classes in Java" />
+<meta property="og:description" content="Documenting Learnings writing Classes in Java" />
+<link rel="canonical" href="https://akhilnandhakumar.github.io/CSA/unit-5/constructor/static/access-modifiers/public-private-protected/inheritance/mutator-method/2022/11/29/unit-5-notes.html" />
+<meta property="og:url" content="https://akhilnandhakumar.github.io/CSA/unit-5/constructor/static/access-modifiers/public-private-protected/inheritance/mutator-method/2022/11/29/unit-5-notes.html" />
+<meta property="og:site_name" content="Akhil’s CSA Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-11-29T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Unit 5 - Writing Classes" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-11-29T00:00:00-06:00","datePublished":"2022-11-29T00:00:00-06:00","description":"Documenting Learnings writing Classes in Java","headline":"Unit 5 - Writing Classes","mainEntityOfPage":{"@type":"WebPage","@id":"https://akhilnandhakumar.github.io/CSA/unit-5/constructor/static/access-modifiers/public-private-protected/inheritance/mutator-method/2022/11/29/unit-5-notes.html"},"url":"https://akhilnandhakumar.github.io/CSA/unit-5/constructor/static/access-modifiers/public-private-protected/inheritance/mutator-method/2022/11/29/unit-5-notes.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/CSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://akhilnandhakumar.github.io/CSA/feed.xml" title="Akhil's CSA Blog" /><link rel="shortcut icon" type="image/x-icon" href="/CSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/CSA/">Akhil&#39;s CSA Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/CSA/about/">Personal Blog</a><a class="page-link" href="/CSA/frontend/">Frontend Test</a><a class="page-link" href="/CSA/notes/">CB Notes</a><a class="page-link" href="/CSA/search/">Search</a><a class="page-link" href="/CSA/categories/">Table of Contents</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Unit 5 - Writing Classes</h1><p class="page-description">Documenting Learnings writing Classes in Java</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-11-29T00:00:00-06:00" itemprop="datePublished">
+        Nov 29, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      5 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/CSA/categories/#Unit-5">Unit-5</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/CSA/categories/#Constructor">Constructor</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/CSA/categories/#Static">Static</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/CSA/categories/#Access-Modifiers">Access-Modifiers</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/CSA/categories/#Public-Private-Protected">Public-Private-Protected</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/CSA/categories/#Inheritance">Inheritance</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/CSA/categories/#Mutator-Method">Mutator-Method</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/AkhilNandhakumar/CSA/tree/master/_notebooks/2022-11-29-unit-5-notes.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/CSA/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/AkhilNandhakumar/CSA/master?filepath=_notebooks%2F2022-11-29-unit-5-notes.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/CSA/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/AkhilNandhakumar/CSA/blob/master/_notebooks/2022-11-29-unit-5-notes.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/CSA/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2FAkhilNandhakumar%2FCSA%2Fblob%2Fmaster%2F_notebooks%2F2022-11-29-unit-5-notes.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/CSA/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#5.1-Anatomy-of-a-Class">5.1 Anatomy of a Class </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Methods">Methods </a></li>
+<li class="toc-entry toc-h2"><a href="#Access-Modifiers">Access Modifiers </a></li>
+<li class="toc-entry toc-h2"><a href="#Data-Encapsulation">Data Encapsulation </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Read-Only">Read-Only </a></li>
+<li class="toc-entry toc-h3"><a href="#Write-Only">Write-Only </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#5.2-Constructors">5.2 Constructors </a></li>
+<li class="toc-entry toc-h1"><a href="#5.3-Comments">5.3 Comments </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Types">Types </a></li>
+<li class="toc-entry toc-h2"><a href="#Other-Vocab">Other Vocab </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#5.4-Accessor-Method-(Getters)">5.4 Accessor Method (Getters) </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#toString()-Method">toString() Method </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Example">Example </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#5.5-Mutator-Method-(Modifier/Setter)">5.5 Mutator Method (Modifier/Setter) </a></li>
+<li class="toc-entry toc-h1"><a href="#5.6-Writing-Methods">5.6 Writing Methods </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-11-29-unit-5-notes.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="5.1-Anatomy-of-a-Class">
+<a class="anchor" href="#5.1-Anatomy-of-a-Class" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.1 Anatomy of a Class<a class="anchor-link" href="#5.1-Anatomy-of-a-Class"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Methods">
+<a class="anchor" href="#Methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods<a class="anchor-link" href="#Methods"> </a>
+</h2>
+<ul>
+<li>Define what an object can do or the behavior of an object</li>
+<li>Can access and use the object's instance variables
+### Main Method</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="n">main</span><span class="err">​</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">){</span>
+    
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>String[] args: an array consisting of command-line arguments (Strings)</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="c1">// Basic Java Class</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Snack</span> <span class="p">{</span> <span class="c1">// class name always starts with capital letter</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * Instance variables</span>
+<span class="cm">     * Always declared right after class declaration</span>
+<span class="cm">     * Declared with TYPE and NAME</span>
+<span class="cm">     */</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">calories</span><span class="p">;</span>
+
+    <span class="c1">// constructor</span>
+    <span class="kd">public</span> <span class="nf">Snack</span><span class="p">(</span><span class="n">String</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c</span><span class="p">){</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+        <span class="n">calories</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// methods</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="p">(){</span> <span class="c1">// accessor</span>
+        <span class="k">return</span> <span class="n">name</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="p">(</span><span class="n">String</span> <span class="n">n</span><span class="p">){</span> <span class="c1">// mutator</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// main method</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Snack</span> <span class="n">one</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Snack</span><span class="p">(</span><span class="s">"Oreos"</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">one</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">Snack</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Oreos
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Access-Modifiers">
+<a class="anchor" href="#Access-Modifiers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Access Modifiers<a class="anchor-link" href="#Access-Modifiers"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Data-Encapsulation">
+<a class="anchor" href="#Data-Encapsulation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Encapsulation<a class="anchor-link" href="#Data-Encapsulation"> </a>
+</h2>
+<ul>
+<li>Data can be accessible or modifiable, BOTH, or NEITHER</li>
+</ul>
+<h3 id="Read-Only">
+<a class="anchor" href="#Read-Only" aria-hidden="true"><span class="octicon octicon-link"></span></a>Read-Only<a class="anchor-link" href="#Read-Only"> </a>
+</h3>
+<ul>
+<li>Instance variables are declared with the <code>private</code> keyword ==&gt; outside the class, the instance variables can only be accessed via public methods of the class</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cow</span> <span class="p">{</span>
+
+    <span class="c1">// instance variables</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">cowType</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">sound</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">numMilkings</span><span class="p">;</span>
+
+    <span class="c1">// constructor</span>
+    <span class="kd">public</span> <span class="nf">Cow</span> <span class="p">(</span><span class="n">String</span> <span class="n">cowType</span><span class="p">,</span> <span class="n">String</span> <span class="n">sound</span><span class="p">){</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">numMilkings</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">cowType</span> <span class="o">=</span> <span class="n">cowType</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">sound</span> <span class="o">=</span> <span class="n">sound</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getSound</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="n">sound</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>    
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CowDriver</span><span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Cow</span> <span class="n">myCow</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Cow</span><span class="p">(</span><span class="s">"holstein"</span><span class="p">,</span> <span class="s">"moo"</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">myCow</span><span class="p">.</span><span class="na">getSound</span><span class="p">());</span>
+        <span class="c1">// myCow.sound = "bark!";</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">CowDriver</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>moo
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Snack</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">calories</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Snack</span><span class="p">(</span><span class="n">String</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c</span><span class="p">){</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+        <span class="n">calories</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="p">(){</span> <span class="c1">// accessor</span>
+        <span class="k">return</span> <span class="n">name</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SnackDriver</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Snack</span> <span class="n">one</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Snack</span><span class="p">(</span><span class="s">"Oreos"</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">one</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span> <span class="c1">// only accessible with getter</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">one</span><span class="p">.</span><span class="na">name</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">SnackDriver</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Write-Only">
+<a class="anchor" href="#Write-Only" aria-hidden="true"><span class="octicon octicon-link"></span></a>Write-Only<a class="anchor-link" href="#Write-Only"> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Snack</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">calories</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Snack</span><span class="p">(</span><span class="n">String</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c</span><span class="p">){</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+        <span class="n">calories</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="p">(</span><span class="n">String</span> <span class="n">n</span><span class="p">){</span> <span class="c1">// accessor</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SnackDriver</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Snack</span> <span class="n">one</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Snack</span><span class="p">(</span><span class="s">"Oreos"</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+        <span class="n">one</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">"Double Stuffed Oreos"</span><span class="p">);</span> <span class="c1">// only accessible with setter</span>
+        <span class="n">one</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"Golden Oreos"</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">SnackDriver</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="5.2-Constructors">
+<a class="anchor" href="#5.2-Constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.2 Constructors<a class="anchor-link" href="#5.2-Constructors"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Every instance of the Snack class has the attributes <code>name</code> and <code>calories</code>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Snack</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">calories</span><span class="p">;</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * Constructors</span>
+<span class="cm">     * Syntax: </span>
+<span class="cm">        *  Written after instance variables, before methods</span>
+<span class="cm">        * Name must match name of the class</span>
+<span class="cm">        * No return type</span>
+<span class="cm">     */</span>
+
+    <span class="c1">// default constructor</span>
+    <span class="kd">public</span> <span class="nf">Snack</span><span class="p">(){</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="n">calories</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// constructor parameters (n and c) are local variables for the constructor only</span>
+        <span class="c1">// you cannot use n and c anywhere else unless you specify them as parameters for another method</span>
+    <span class="kd">public</span> <span class="nf">Snack</span><span class="p">(</span><span class="n">String</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c</span><span class="p">){</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+        <span class="n">calories</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="p">(){</span> <span class="c1">// accessor</span>
+        <span class="k">return</span> <span class="n">name</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Snack</span> <span class="n">one</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Snack</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Using Default Constructor: "</span> <span class="o">+</span> <span class="n">one</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+        <span class="n">Snack</span> <span class="n">two</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Snack</span><span class="p">(</span><span class="s">"Oreos"</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Using Two Constructor: "</span> <span class="o">+</span> <span class="n">two</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">Snack</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Using Default Constructor: null
+Using Two Constructor: Oreos
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="5.3-Comments">
+<a class="anchor" href="#5.3-Comments" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.3 Comments<a class="anchor-link" href="#5.3-Comments"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Ignored by compiler, not executed</li>
+<li>Make code more readable for humans or prevent execution when testing</li>
+<li>Are NOT required on AP Exam</li>
+</ul>
+<h2 id="Types">
+<a class="anchor" href="#Types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Types<a class="anchor-link" href="#Types"> </a>
+</h2>
+<ul>
+<li>Multi-line comments (/**/)</li>
+<li>Single-line comments (//)</li>
+<li>Javadoc comments<ul>
+<li>Javadoc tool that comes with the Java JDK can pull out comments and create a web page with all your comments</li>
+</ul>
+</li>
+</ul>
+<h2 id="Other-Vocab">
+<a class="anchor" href="#Other-Vocab" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other Vocab<a class="anchor-link" href="#Other-Vocab"> </a>
+</h2>
+<ul>
+<li>Precondition: condition that must be true before execution of a code block<ul>
+<li>Methods don't need to check preconditions</li>
+</ul>
+</li>
+<li>Postcondition: condition that is ALWAYS true after the execution of a code block<ul>
+<li>Outcome</li>
+<li>State of instance variables</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="5.4-Accessor-Method-(Getters)">
+<a class="anchor" href="#5.4-Accessor-Method-(Getters)" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.4 Accessor Method (Getters)<a class="anchor-link" href="#5.4-Accessor-Method-(Getters)"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Allows other objects outside of the class to obtain values of instance variables or static variables</li>
+<li>Non-void method returns a single value<ul>
+<li>Header includes return type (<code>String</code>, <code>int</code>, <code>Long</code> etc)</li>
+</ul>
+</li>
+<li>"return by value": return expression at the end of a method will specify that value that will be returned (must correspond to the type)</li>
+<li>Must be used when different classes need to access the instance variables</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="c1">// always public</span>
+<span class="c1">// must specify return type</span>
+<span class="c1">// getVariable (typical naming convention)</span>
+<span class="c1">// no parameters</span>
+
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">getVariable</span><span class="p">(){</span>
+
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="toString()-Method">
+<a class="anchor" href="#toString()-Method" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>toString()</code> Method<a class="anchor-link" href="#toString()-Method"> </a>
+</h2>
+<ul>
+<li>Overridden method that provides description of a specific object (ie values of instance variables)</li>
+<li>If System.out.print or System.out.println() is passed an object, that object's toString() method is called ==&gt; returned string is printed<ul>
+<li>Java default toString() will return a hashcode, but you can manually write your own toString() method</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="c1">// method header always stays the same</span>
+<span class="c1">// always returns string</span>
+<span class="c1">// no parameters</span>
+
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">(){</span>
+
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Example">
+<a class="anchor" href="#Example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example<a class="anchor-link" href="#Example"> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Snack</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">calories</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Snack</span><span class="p">(</span><span class="n">String</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c</span><span class="p">){</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+        <span class="n">calories</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// return values of instance variables</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="s">"Name: "</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">"; "</span> <span class="o">+</span> <span class="s">"Calories: "</span> <span class="o">+</span> <span class="n">calories</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Snack</span> <span class="n">two</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Snack</span><span class="p">(</span><span class="s">"Oreos"</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">two</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">Snack</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Name: Oreos; Calories: 100
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="5.5-Mutator-Method-(Modifier/Setter)">
+<a class="anchor" href="#5.5-Mutator-Method-(Modifier/Setter)" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.5 Mutator Method (Modifier/Setter)<a class="anchor-link" href="#5.5-Mutator-Method-(Modifier/Setter)"> </a>
+</h1>
+<ul>
+<li>Typically a <code>void</code> method that changes value of instance variables or static variables<ul>
+<li>
+<code>void</code> methods do not return values</li>
+</ul>
+</li>
+<li>Must be used when different classes need to modify instance variables    </li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="c1">// always public void</span>
+<span class="c1">// setVariable (naming convention)</span>
+<span class="c1">// parameter type must match type of instance variable being modified</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setVariable</span><span class="p">(</span><span class="n">String</span> <span class="n">variable</span><span class="p">){</span>
+    <span class="k">this</span><span class="p">.</span><span class="na">variable</span> <span class="o">=</span> <span class="n">variable</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="5.6-Writing-Methods">
+<a class="anchor" href="#5.6-Writing-Methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.6 Writing Methods<a class="anchor-link" href="#5.6-Writing-Methods"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Song</span>
+<span class="p">{</span>
+
+  <span class="cm">/** Verse - prints out a verse of the song</span>
+<span class="cm">   * @param number - a String like "one", "two", etc.</span>
+<span class="cm">   * @param rhyme - a String like "thumb", "shoe", etc.</span>
+<span class="cm">   */</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">verse</span><span class="p">(</span><span class="n">String</span> <span class="n">number</span><span class="p">,</span> <span class="n">String</span> <span class="n">rhyme</span><span class="p">)</span>
+   <span class="p">{</span>
+     <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"This old man, he played "</span> <span class="o">+</span> <span class="n">number</span><span class="p">);</span>
+     <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"He played knick knack on my "</span> <span class="o">+</span> <span class="n">rhyme</span><span class="p">);</span>
+   <span class="p">}</span>
+
+  <span class="c1">// The chorus method</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">chorus</span><span class="p">()</span>
+  <span class="p">{</span>
+     <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"With a knick knack paddy whack, give a dog a bone."</span><span class="p">);</span>
+     <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"This old man came rolling home."</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[]</span><span class="p">)</span>
+  <span class="p">{</span>
+      <span class="n">Song</span> <span class="n">mySong</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Song</span><span class="p">();</span>
+      <span class="n">mySong</span><span class="p">.</span><span class="na">verse</span><span class="p">(</span><span class="s">"one"</span><span class="p">,</span> <span class="s">"thumb"</span><span class="p">);</span>
+      <span class="n">mySong</span><span class="p">.</span><span class="na">chorus</span><span class="p">();</span>
+      <span class="n">mySong</span><span class="p">.</span><span class="na">verse</span><span class="p">(</span><span class="s">"two"</span><span class="p">,</span> <span class="s">"shoe"</span><span class="p">);</span>
+      <span class="n">mySong</span><span class="p">.</span><span class="na">chorus</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">Song</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>This old man, he played one
+He played knick knack on my thumb
+With a knick knack paddy whack, give a dog a bone.
+This old man came rolling home.
+This old man, he played two
+He played knick knack on my shoe
+With a knick knack paddy whack, give a dog a bone.
+This old man came rolling home.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="AkhilNandhakumar/CSA"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/CSA/unit-5/constructor/static/access-modifiers/public-private-protected/inheritance/mutator-method/2022/11/29/unit-5-notes.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/CSA/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/CSA/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/CSA/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Blogging platform to document CSA notes, hacks, and test prep.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+  <a rel="me" href="“https://github.com/nighthawkcoders”" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/CSA/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="“https://twitter.com/NighthawkCoding”" target="_blank" title="twitter">
+    <svg class="svg-icon grey">
+      <use xlink:href="/CSA/assets/minima-social-icons.svg#twitter"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="“https://www.youtube.com/channel/UClIKOsDS5dsfzFA3zveDT3Q”" target="_blank" title="youtube">
+    <svg class="svg-icon grey">
+      <use xlink:href="/CSA/assets/minima-social-icons.svg#youtube"></use>
+    </svg>
+  </a>
+</li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
