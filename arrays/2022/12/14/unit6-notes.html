@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Unit 6 - Arrays | Akhil’s CSA Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Unit 6 - Arrays" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Arrays" />
+<meta property="og:description" content="Arrays" />
+<link rel="canonical" href="https://akhilnandhakumar.github.io/CSA/arrays/2022/12/14/unit6-notes.html" />
+<meta property="og:url" content="https://akhilnandhakumar.github.io/CSA/arrays/2022/12/14/unit6-notes.html" />
+<meta property="og:site_name" content="Akhil’s CSA Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-12-14T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Unit 6 - Arrays" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-12-14T00:00:00-06:00","datePublished":"2022-12-14T00:00:00-06:00","description":"Arrays","headline":"Unit 6 - Arrays","mainEntityOfPage":{"@type":"WebPage","@id":"https://akhilnandhakumar.github.io/CSA/arrays/2022/12/14/unit6-notes.html"},"url":"https://akhilnandhakumar.github.io/CSA/arrays/2022/12/14/unit6-notes.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/CSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://akhilnandhakumar.github.io/CSA/feed.xml" title="Akhil's CSA Blog" /><link rel="shortcut icon" type="image/x-icon" href="/CSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/CSA/">Akhil&#39;s CSA Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/CSA/about/">Personal Blog</a><a class="page-link" href="/CSA/frontend/">Frontend Test</a><a class="page-link" href="/CSA/notes/">CB Notes</a><a class="page-link" href="/CSA/search/">Search</a><a class="page-link" href="/CSA/categories/">Table of Contents</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Unit 6 - Arrays</h1><p class="page-description">Arrays</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-12-14T00:00:00-06:00" itemprop="datePublished">
+        Dec 14, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      5 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/CSA/categories/#Arrays">Arrays</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/AkhilNandhakumar/CSA/tree/master/_notebooks/2022-12-14-unit6-notes.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/CSA/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/AkhilNandhakumar/CSA/master?filepath=_notebooks%2F2022-12-14-unit6-notes.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/CSA/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/AkhilNandhakumar/CSA/blob/master/_notebooks/2022-12-14-unit6-notes.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/CSA/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2FAkhilNandhakumar%2FCSA%2Fblob%2Fmaster%2F_notebooks%2F2022-12-14-unit6-notes.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/CSA/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-12-14-unit6-notes.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Arrays-Overview">Arrays Overview<a class="anchor-link" href="#Arrays-Overview"> </a></h3><ul>
+<li>Arrays are 10-15% of the AP CSA Exam</li>
+<li>The four main topics that College Board wants you to know<ul>
+<li>Array creation and access</li>
+<li>Traversing arrays</li>
+<li>Enhanced for loops for arrays</li>
+<li>Developing algorithms using arrays</li>
+</ul>
+</li>
+<li>The overall purpose of arrays is to store multiple values in a single variable, instead of declaring separate variables for each value.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="6.1-Array-Creation-and-Access">6.1 Array Creation and Access<a class="anchor-link" href="#6.1-Array-Creation-and-Access"> </a></h3><ul>
+<li>Arrays are used to store one data type</li>
+<li>Unlike Arraylists, arrays have a fixed size and cannot be changed</li>
+<li>Arrays can be denoted using braces {}
+Below is an example of a simple array storing our scrum team names
+<pre><code>[Meena, Shraddha, Madhumita, Pranavi]</code></pre>
+</li>
+<li>To use an array you have to use the command
+<pre><code>import java.util.Arrays;</code></pre>
+</li>
+</ul>
+<h4 id="Making-Arrays">Making Arrays<a class="anchor-link" href="#Making-Arrays"> </a></h4><p>There are two ways to make arrays</p>
+<ul>
+<li>using constructors</li>
+<li>using pre-intiliazed arrays</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="n">dataType</span><span class="o">[]</span> <span class="n">arrayName</span> <span class="o">=</span> <span class="k">new</span> <span class="n">dataType</span><span class="o">[</span><span class="n">numberOfItems</span><span class="o">]</span><span class="p">;</span> <span class="c1">//Constructor</span>
+<span class="kt">int</span><span class="o">[]</span> <span class="n">arraySample</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">};</span> <span class="c1">//pre-initialized arrays</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Accessing-Elements-in-Arrays">Accessing Elements in Arrays<a class="anchor-link" href="#Accessing-Elements-in-Arrays"> </a></h4><ul>
+<li>You can access the elements in an array using different commands</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="n">arrayName</span><span class="p">.</span><span class="na">Length</span> <span class="c1">//determine the size</span>
+<span class="n">arrayName</span><span class="p">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span> <span class="c1">//to access the last item in the array</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="6.2-Traversing-Arrays">6.2 Traversing Arrays<a class="anchor-link" href="#6.2-Traversing-Arrays"> </a></h3><ul>
+<li><strong>Traversing</strong> is accessing every value in the array</li>
+<li>Can be done using a loop like a <code>for</code> loop or <code>while</code> loop</li>
+<li>Below is an example - using a for loop, we can iterate through each fruit in the array of Strings and print it out</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="c1">// Here is the array we will be working with</span>
+<span class="n">String</span><span class="o">[]</span> <span class="n">myFruits</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="p">{</span><span class="s">&quot;Apple&quot;</span><span class="p">,</span> <span class="s">&quot;Strawberry&quot;</span><span class="p">,</span> <span class="s">&quot;Watermelon&quot;</span><span class="p">,</span> <span class="s">&quot;Blueberry&quot;</span><span class="p">};</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">myFruits</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Fruit number &quot;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s">&quot; is &quot;</span> <span class="o">+</span> <span class="n">myFruits</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Can also loop through an array in reverse</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">myFruits</span><span class="p">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Fruit number &quot;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s">&quot; is &quot;</span> <span class="o">+</span> <span class="n">myFruits</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>If we have a list of numbers, we could change each value in the array by a certain amount </li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="c1">// Here is the array we will be working with</span>
+<span class="kt">int</span><span class="o">[]</span> <span class="n">myNumbers</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">};</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">myNumbers</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// add 10 to each element in the array</span>
+    <span class="n">myNumbers</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;New element &quot;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s">&quot; is &quot;</span> <span class="o">+</span> <span class="n">myNumbers</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>We can also traverse an array using a while loop</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="c1">// Here is the array we will be working with</span>
+<span class="n">String</span><span class="o">[]</span> <span class="n">myFruits</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="p">{</span><span class="s">&quot;Apple&quot;</span><span class="p">,</span> <span class="s">&quot;Strawberry&quot;</span><span class="p">,</span> <span class="s">&quot;Watermelon&quot;</span><span class="p">,</span> <span class="s">&quot;Blueberry&quot;</span><span class="p">};</span>
+
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> 
+<span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">myFruits</span><span class="p">.</span><span class="na">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Fruit number &quot;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s">&quot; is &quot;</span> <span class="o">+</span> <span class="n">myFruits</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
+    <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Bound-Errors">Bound Errors<a class="anchor-link" href="#Bound-Errors"> </a></h4><ul>
+<li><code>ArrayIndexOutOfBoundsException</code> thrown, can happen when using loops to access array elements</li>
+<li>In the example below instead of the condition being while the index is less than the length of the array, the condition is less than or equal too</li>
+<li>This mean the loop will try to run when i = 4 (since the length of the list is 4). However since array index starts from 0, the last item in the array will have an index of 3. So, index of 4 will be out of bounds, resulting in the error.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> 
+
+<span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">myFruits</span><span class="p">.</span><span class="na">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Fruit number &quot;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s">&quot; is &quot;</span> <span class="o">+</span> <span class="n">myFruits</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
+    <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="6.3-Enhanced-for-loop-for-Arrays">6.3 Enhanced for loop for Arrays<a class="anchor-link" href="#6.3-Enhanced-for-loop-for-Arrays"> </a></h3><p>This topic was pretty short, but essentially what you need to know is about the enhanced for loop. The enhanced for loop can be used to traverse through most data structures (i.g. arrays). However, it can only traverse in a forward direction. Usually the structure is like so</p>
+
+<pre><code>for (dataType i: arrayName) {
+  do something with i
+}</code></pre>
+<p>Essentially, this code mentions how every element in the array (i) has to have something done to it. It's important to note that although there is access to the element i, but it isn't possible to change the value/set new values to element i.</p>
+<p>We can use mutator methods on objects on the array to set the value of their instance variables. This is because i is a copy of the object reference, which means that i refers to the same object as the array element, so calling methods on i is the same as calling methods on the individual array elements themselves. For example</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Student</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
+    
+    <span class="cm">/** Sets the name of the Student</span>
+<span class="cm">    */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+    <span class="p">}</span>
+  
+    <span class="cm">/** Other instance variables, methods, and constructors not shown</span>
+<span class="cm">    */</span>
+  <span class="p">}</span>
+  <span class="c1">// IN ANOTHER CLASS</span>
+  <span class="cm">/** Resets all students&#39; names</span>
+<span class="cm">  */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">doubleArray</span><span class="p">(</span><span class="n">Student</span><span class="o">[]</span> <span class="n">array</span><span class="p">,</span> <span class="n">String</span> <span class="n">defaultName</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">Student</span> <span class="n">student</span><span class="p">:</span> <span class="n">array</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">student</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="n">defaultName</span><span class="p">);</span> <span class="c1">// Sets each student&#39;s name to a default name</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="6.4-Developing-Algorithms-using-Arrays">6.4 Developing Algorithms using Arrays<a class="anchor-link" href="#6.4-Developing-Algorithms-using-Arrays"> </a></h3><p>Here are some algorithms that arrays can be used for (from college board standards),</p>
+<ul>
+<li>Minimum and Maximum of a list of elements</li>
+<li>Compute the sum, average, or mode of multiple elements</li>
+<li>Determine if at least one element has a property</li>
+<li>Access consecutive pairs of elements</li>
+<li>Determine duplicates</li>
+</ul>
+<p>What to use when problem solving with arrays
+<code>.length</code> can be used to find the length of an array</p>
+<ul>
+<li>The value at a specific index can be found with <code>array[i]</code>, where <code>i</code> is the index</li>
+<li>An element at index <code>i</code> can be replaced using <code>array[i] = new element</code></li>
+<li>You can iterate over an array with a for loop
+<pre><code>for(type element: array) {
+  \\\\ code here</code></pre>
+</li>
+</ul>
+<h4 id="Computing-Sums-with-Arrays">Computing Sums with Arrays<a class="anchor-link" href="#Computing-Sums-with-Arrays"> </a></h4><p>See the code below for a sample algorithm of how to compute the sum of elements in an array. This could be applied to finding the mean, standard deviation, or any other algorithm that requires summation.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kt">int</span><span class="o">[]</span> <span class="n">array</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">78</span><span class="p">};</span> <span class="c1">// intialize</span>
+
+<span class="kt">int</span> <span class="n">sum</span>  <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// variable to keep track of sum</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">number</span> <span class="p">:</span> <span class="n">array</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// iterates over each loop in the array</span>
+    <span class="n">sum</span> <span class="o">+=</span> <span class="n">number</span><span class="p">;</span> <span class="c1">// the number is added to the sum</span>
+<span class="p">}</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sum</span><span class="p">);</span> <span class="c1">//expected sum is 84, so 84 should be printed</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>84
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="AkhilNandhakumar/CSA"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/CSA/arrays/2022/12/14/unit6-notes.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/CSA/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/CSA/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/CSA/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Blogging platform to document CSA notes, hacks, and test prep.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+  <a rel="me" href="“https://github.com/nighthawkcoders”" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/CSA/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="“https://twitter.com/NighthawkCoding”" target="_blank" title="twitter">
+    <svg class="svg-icon grey">
+      <use xlink:href="/CSA/assets/minima-social-icons.svg#twitter"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="“https://www.youtube.com/channel/UClIKOsDS5dsfzFA3zveDT3Q”" target="_blank" title="youtube">
+    <svg class="svg-icon grey">
+      <use xlink:href="/CSA/assets/minima-social-icons.svg#youtube"></use>
+    </svg>
+  </a>
+</li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
