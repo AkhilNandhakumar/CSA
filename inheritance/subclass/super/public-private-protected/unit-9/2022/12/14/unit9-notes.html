@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Unit 9 - Inheritance | Akhil’s CSA Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Unit 9 - Inheritance" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Unit 9 Inheritance" />
+<meta property="og:description" content="Unit 9 Inheritance" />
+<link rel="canonical" href="https://akhilnandhakumar.github.io/CSA/inheritance/subclass/super/public-private-protected/unit-9/2022/12/14/unit9-notes.html" />
+<meta property="og:url" content="https://akhilnandhakumar.github.io/CSA/inheritance/subclass/super/public-private-protected/unit-9/2022/12/14/unit9-notes.html" />
+<meta property="og:site_name" content="Akhil’s CSA Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-12-14T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Unit 9 - Inheritance" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-12-14T00:00:00-06:00","datePublished":"2022-12-14T00:00:00-06:00","description":"Unit 9 Inheritance","headline":"Unit 9 - Inheritance","mainEntityOfPage":{"@type":"WebPage","@id":"https://akhilnandhakumar.github.io/CSA/inheritance/subclass/super/public-private-protected/unit-9/2022/12/14/unit9-notes.html"},"url":"https://akhilnandhakumar.github.io/CSA/inheritance/subclass/super/public-private-protected/unit-9/2022/12/14/unit9-notes.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/CSA/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://akhilnandhakumar.github.io/CSA/feed.xml" title="Akhil's CSA Blog" /><link rel="shortcut icon" type="image/x-icon" href="/CSA/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/CSA/">Akhil&#39;s CSA Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/CSA/about/">Personal Blog</a><a class="page-link" href="/CSA/frontend/">Frontend Test</a><a class="page-link" href="/CSA/notes/">CB Notes</a><a class="page-link" href="/CSA/search/">Search</a><a class="page-link" href="/CSA/categories/">Table of Contents</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Unit 9 - Inheritance</h1><p class="page-description">Unit 9 Inheritance</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-12-14T00:00:00-06:00" itemprop="datePublished">
+        Dec 14, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      8 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/CSA/categories/#Inheritance">Inheritance</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/CSA/categories/#Subclass">Subclass</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/CSA/categories/#Super">Super</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/CSA/categories/#Public-Private-Protected">Public-Private-Protected</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/CSA/categories/#Unit-9">Unit-9</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/AkhilNandhakumar/CSA/tree/master/_notebooks/2022-12-14-unit9-notes.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/CSA/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/AkhilNandhakumar/CSA/master?filepath=_notebooks%2F2022-12-14-unit9-notes.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/CSA/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/AkhilNandhakumar/CSA/blob/master/_notebooks/2022-12-14-unit9-notes.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/CSA/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2FAkhilNandhakumar%2FCSA%2Fblob%2Fmaster%2F_notebooks%2F2022-12-14-unit9-notes.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/CSA/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#SuperClasses-and-Subclasses-with-Cars">SuperClasses and Subclasses with Cars </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Let's-first-look-at-the-base-"Car-Class"-we-talked-about,-with-the-generic-methods-all-cars-would-have.-This-is-called-the-Super-Class.">Let&#39;s first look at the base &quot;Car Class&quot; we talked about, with the generic methods all cars would have. This is called the Super Class. </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Some-vocab:">Some vocab: </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#Writing-Constructors-for-Subclasses">Writing Constructors for Subclasses </a></li>
+<li class="toc-entry toc-h1"><a href="#Overriding-Methods">Overriding Methods </a></li>
+<li class="toc-entry toc-h1"><a href="#Super-Keyword">Super Keyword </a></li>
+<li class="toc-entry toc-h1"><a href="#Creating-References-Using-Inheritance-Hierarchies">Creating References Using Inheritance Hierarchies </a></li>
+<li class="toc-entry toc-h1"><a href="#Polymorphism">Polymorphism </a></li>
+<li class="toc-entry toc-h1"><a href="#Object-Superclass">Object Superclass </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-12-14-unit9-notes.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="SuperClasses-and-Subclasses-with-Cars">
+<a class="anchor" href="#SuperClasses-and-Subclasses-with-Cars" aria-hidden="true"><span class="octicon octicon-link"></span></a>SuperClasses and Subclasses with Cars<a class="anchor-link" href="#SuperClasses-and-Subclasses-with-Cars"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Let's-first-look-at-the-base-&quot;Car-Class&quot;-we-talked-about,-with-the-generic-methods-all-cars-would-have.-This-is-called-the-Super-Class.">
+<a class="anchor" href="#Let's-first-look-at-the-base-" car-class aria-hidden="true"><span class="octicon octicon-link"></span></a>Let's first look at the base "Car Class" we talked about, with the generic methods all cars would have. This is called the <strong>Super Class</strong>.<a class="anchor-link" href="#Let's-first-look-at-the-base-%22Car-Class%22-we-talked-about,-with-the-generic-methods-all-cars-would-have.-This-is-called-the-Super-Class."> </a>
+</h3>
+<h4 id="Some-vocab:">
+<a class="anchor" href="#Some-vocab:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Some vocab:<a class="anchor-link" href="#Some-vocab:"> </a>
+</h4>
+<p>protected is an access modifier so that the attribute isn't affected by outside modifiers.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Car</span> <span class="p">{</span>
+    <span class="kd">protected</span> <span class="n">String</span> <span class="n">brandName</span><span class="p">;</span>
+    <span class="kd">protected</span> <span class="kt">double</span> <span class="n">range</span><span class="p">;</span>
+    <span class="kd">protected</span> <span class="kt">double</span> <span class="n">doorNumber</span><span class="p">;</span>
+    <span class="kd">protected</span> <span class="kt">double</span> <span class="n">maxSpeed</span><span class="p">;</span>
+    
+    <span class="c1">// Constructor for the attributes present in the superclass</span>
+    <span class="kd">public</span> <span class="nf">Car</span><span class="p">(</span><span class="n">String</span> <span class="n">brandName</span><span class="p">,</span> <span class="kt">double</span> <span class="n">range</span><span class="p">,</span> <span class="kt">double</span> <span class="n">doorNumber</span><span class="p">,</span> <span class="kt">double</span> <span class="n">maxSpeed</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">brandName</span> <span class="o">=</span> <span class="n">brandName</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">range</span> <span class="o">=</span> <span class="n">range</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">doorNumber</span> <span class="o">=</span> <span class="n">doorNumber</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">maxSpeed</span> <span class="o">=</span> <span class="n">maxSpeed</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">gas</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Go!"</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">brake</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Stop!"</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">gearShift</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Use the stick"</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">steer</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"turning left..."</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">horn</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">"honking... "</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TeslaModelS</span> <span class="kd">extends</span> <span class="n">Car</span> <span class="p">{</span>
+    <span class="c1">// Additional attribute not present in the superclass</span>
+    <span class="kd">protected</span> <span class="n">String</span> <span class="n">hornSound</span><span class="p">;</span> 
+    
+    <span class="c1">// Constructor for Subclass</span>
+    <span class="kd">public</span> <span class="nf">TeslaModelS</span><span class="p">(</span><span class="n">String</span> <span class="n">brandName</span><span class="p">,</span> <span class="kt">double</span> <span class="n">range</span><span class="p">,</span> <span class="kt">double</span> <span class="n">doorNumber</span><span class="p">,</span> <span class="kt">double</span> <span class="n">maxSpeed</span><span class="p">,</span> <span class="n">String</span> <span class="n">hornSound</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// We use the Superclass constructor for the shared attributes through the keyword "super"</span>
+        <span class="kd">super</span><span class="p">(</span><span class="n">brandName</span><span class="p">,</span> <span class="n">range</span><span class="p">,</span> <span class="n">doorNumber</span><span class="p">,</span> <span class="n">maxSpeed</span><span class="p">);</span>
+        <span class="c1">// hornSound is not in the Superclass, so we add it separately in the constructor</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">hornSound</span> <span class="o">=</span> <span class="n">hornSound</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// We use override to change the functionality in the subclass of an existing method in the superclass</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">gearShift</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Use the gear selector next to the wheel"</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">steer</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"turning right..."</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Here, we don't fully change the functionality of the existing horn method in the superclass</span>
+    <span class="c1">// Instead, we take all of the functionality of the superclass method, and then add on to it</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">horn</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">.</span><span class="na">horn</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">hornSound</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 5 argument constructor</span>
+        <span class="n">TeslaModelS</span> <span class="n">modelS</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TeslaModelS</span><span class="p">(</span><span class="s">"Tesla"</span><span class="p">,</span> <span class="mi">396</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="s">"eugh"</span><span class="p">);</span>
+        <span class="c1">// Example of late binding</span>
+        <span class="n">Car</span> <span class="n">car</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TeslaModelS</span><span class="p">(</span><span class="s">"Tesla"</span><span class="p">,</span> <span class="mi">396</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="s">"brrr"</span><span class="p">);</span>
+        <span class="c1">// We can still use the methods from the child class, even though we didn't mention them in the subclass!</span>
+        <span class="n">modelS</span><span class="p">.</span><span class="na">gas</span><span class="p">();</span>
+        <span class="c1">// Using the overridden method</span>
+        <span class="n">modelS</span><span class="p">.</span><span class="na">gearShift</span><span class="p">();</span>
+        <span class="n">modelS</span><span class="p">.</span><span class="na">steer</span><span class="p">();</span>
+        <span class="c1">// Using the method we added on to</span>
+        <span class="n">modelS</span><span class="p">.</span><span class="na">horn</span><span class="p">();</span>
+        <span class="n">car</span><span class="p">.</span><span class="na">horn</span><span class="p">();</span>
+    <span class="p">}</span>
+    
+    
+<span class="p">}</span>
+<span class="n">TeslaModelS</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Go!
+Use the gear selector next to the wheel
+turning right...
+honking... eugh
+honking... brrr
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Writing-Constructors-for-Subclasses">
+<a class="anchor" href="#Writing-Constructors-for-Subclasses" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing Constructors for Subclasses<a class="anchor-link" href="#Writing-Constructors-for-Subclasses"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the previous example, the <strong>TeslaModelS</strong> class was a subclass. Recall that a constructor is what initializes the values of the attributes of a class when a new object of the class is created. How do we write constructors for subclasses?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Well, if the attributes of the subclass are exactly the same as the attributes of the superclass, then we can just use the constructor of the superclass. Take a look at the superclass, the <strong>Car</strong> class. We have defined a constructor within that class already.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To use the constructor of the superclass in our subclass, we need to use some specific syntax. Namely, we need to make use of the <strong>super</strong> keyword. This allows us to use constructors that we define in the superclass.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Look again at the constructor in the <strong>TeslaModelS</strong> class. We have passed in 4 attributes to the super constructor, meaning that we are making use of the 4 argument constructor in the superclass.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>But our subclass also has an additional attribute: <strong>hornSound</strong>. We don't include this in the superclass since this isn't customizable for most cars. This attribute needs to be included in the constructor for our subclass, but it doesn't make sense to make a completely new constructor for all 5 attributes when 4 of the attributes are shared with the superclass.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So, what we do is call the superclass constructor with 4 attributes, but then simply add an additional assignment for the 5th, unique, attribute.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Overriding-Methods">
+<a class="anchor" href="#Overriding-Methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overriding Methods<a class="anchor-link" href="#Overriding-Methods"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Overriding allows a subclass or child class to provide a specific implementation of a method that has already been provided by a super-classes or parent classes. When a method in a subclass has the same name, same parameters or signature, and same return type (or sub-type) as a method in its super-class, then the method in the subclass will override the method in the super-class.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="c1">// the existing method in the superclass</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">gearShift</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Use the stick"</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">steer</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"turning left..."</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// We use override to change the functionality in the subclass of an existing method in the superclass</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">gearShift</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Use the gear selector next to the wheel"</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">steer</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"turning right..."</span><span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Super-Keyword">
+<a class="anchor" href="#Super-Keyword" aria-hidden="true"><span class="octicon octicon-link"></span></a>Super Keyword<a class="anchor-link" href="#Super-Keyword"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The two main uses of the <strong>super keyword</strong> are to use constructors in the superclass and methods in the superclass in a child class.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this example child class <strong>TeslaModelS</strong>, the <strong>super</strong> keyword can be found in the constructor and the method horn. When it says, <strong>super(brandName, range, doorNumber, maxSpeed)</strong> in the constructor, the super keyword is used to utilize the super class constructor inside the child class. Next, in the horn() method, <strong>super.horn()</strong> is called. This line utilizes the super keyword to call the method horn() from the parent class Car.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Creating-References-Using-Inheritance-Hierarchies">
+<a class="anchor" href="#Creating-References-Using-Inheritance-Hierarchies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating References Using Inheritance Hierarchies<a class="anchor-link" href="#Creating-References-Using-Inheritance-Hierarchies"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Type Diagram</p>
+<p>It is similar to looking at it like a family tree. A is the superclass, or the head of the family. The descendants are the subclasses.</p>
+<p>So</p>
+<p>public class A
+public class B extends A
+public class C extends B</p>
+<p>A Reference refers to an object of the class, or the object of an inherited class. So an Inheritance Hierarchy can create references</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Polymorphism">
+<a class="anchor" href="#Polymorphism" aria-hidden="true"><span class="octicon octicon-link"></span></a>Polymorphism<a class="anchor-link" href="#Polymorphism"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ToyotaCamry</span> <span class="kd">extends</span> <span class="n">Car</span> <span class="p">{</span>
+    
+    <span class="kd">public</span> <span class="nf">ToyotaCamry</span> <span class="p">(</span><span class="n">String</span> <span class="n">brandName</span><span class="p">,</span> <span class="kt">double</span> <span class="n">range</span><span class="p">,</span> <span class="kt">double</span> <span class="n">doorNumber</span><span class="p">,</span> <span class="kt">double</span> <span class="n">maxSpeed</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">(</span><span class="n">brandName</span><span class="p">,</span> <span class="n">range</span><span class="p">,</span> <span class="n">doorNumber</span><span class="p">,</span> <span class="n">maxSpeed</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">gearShift</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Manual shift!"</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">turbo</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Engaging turbo "</span> <span class="o">+</span> <span class="n">a</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">turbo</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Engaging turbo "</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span> <span class="s">" and nitro "</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+        
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 4 superclass argument constructor</span>
+        <span class="n">ToyotaCamry</span> <span class="n">camry</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ToyotaCamry</span><span class="p">(</span><span class="s">"Toyota"</span><span class="p">,</span> <span class="mi">348</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">145</span><span class="p">);</span>
+        <span class="c1">// Using the overridden method</span>
+        <span class="n">camry</span><span class="p">.</span><span class="na">gearShift</span><span class="p">();</span>
+        <span class="c1">// Using the overloaded method</span>
+        <span class="n">camry</span><span class="p">.</span><span class="na">turbo</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">camry</span><span class="p">.</span><span class="na">turbo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">ToyotaCamry</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Manual shift!
+Engaging turbo 1
+Engaging turbo 1 and nitro 1
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Polymorphism</strong> means "many forms". It means that we do one thing in many ways through inheritance.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For example, the <strong>gearShift</strong> method defined in the superclass simply says to use the stick. But in manual cars and a Tesla, you need to do different things. So, we show the method to shift gears being used in two different ways in two different classes. We can have two different implementations through <strong>overriding</strong> methods.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Look at the different outputs for the method in the <strong>ToyotaCamry</strong> and <strong>TeslaModelS</strong> class.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This method of polymorphism is called <strong>Runtime Polymorphism</strong>. It is also called <strong>Dynamic Binding</strong> or <strong>Dynamic Method Dispatch</strong>. When you hear any of these things, think of method overriding.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Imagine if you want to do a single method in a single class, but in different ways. For example, in the <strong>ToyotaCamry</strong> class, we need to either engage a turbo by itself, or a turbo with a nitro. So, we have two methods called <strong>turbo</strong>. When the method is called, the actual functionality is resolved at compile-time.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When we call <strong>camry.turbo(1)</strong>, then the single argument turbo method is called. When we call <strong>camry.turbo(1, 1)</strong>, the two argument turbo method is called.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Having two methods with the same name but different arguments and functionalities is called <strong>method overloading</strong>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is another form of polymorphism called <strong>Compile Time Polymorphism</strong> or <strong>Static Polymorphism</strong>. When you see these terms, think of method overloading.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Early binding</strong> has to do with when the compiler decides the method to be called. Relate this to Static Polymorphism or method overloading. <strong>Late binding</strong> has to do with when the method is decided at runtime. Relate this to Runtime Polymorphism or method overriding.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Object-Superclass">
+<a class="anchor" href="#Object-Superclass" aria-hidden="true"><span class="octicon octicon-link"></span></a>Object Superclass<a class="anchor-link" href="#Object-Superclass"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Important Things to Know</p>
+<ul>
+<li>Object class is the superclass of all other classes in Java</li>
+<li>Object is part of the java.lang package (know for imports)</li>
+<li>Important Object class methods include: boolean equals(Object x) &amp; String toString()</li>
+<li>Object class' subclasses override the equals and toString methods</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>toString Method</p>
+<ul>
+<li>Prints out the attributes of an object</li>
+<li>Converts string object into a string</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>equals Method</p>
+<ul>
+<li>Compares two strings</li>
+<li>Returns a boolean value of true if equal, otherwise returns false</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="c1">// Demonstration of toString method</span>
+<span class="c1">// Utilized toString methods in all FRQs so far, here's an example from FRQ1</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">dayOfWeekToString</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span><span class="s">"{ \"month\": "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">month</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="s">"\"day\": "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">day</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="s">"\"year\": "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">year</span> <span class="o">+</span> <span class="s">", "</span>
+          <span class="o">+</span> <span class="s">"\"dayOfWeek\": "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">dayOfWeek</span> <span class="o">+</span> <span class="s">" }"</span><span class="p">);</span>
+ <span class="p">}</span>
+
+
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">dayOfWeekToString</span><span class="p">();</span>
+ <span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-java"><pre><span></span><span class="c1">// Demonstration of equals method</span>
+<span class="c1">// Outputs boolean value of true or false</span>
+<span class="c1">// If one object equals another</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Student</span>
+<span class="p">{</span>
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
+
+   <span class="kd">public</span> <span class="nf">Student</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="n">Student</span> <span class="n">student1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="p">(</span><span class="s">"Bob"</span><span class="p">);</span>
+      <span class="n">Student</span> <span class="n">student2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="p">(</span><span class="s">"Jeff"</span><span class="p">);</span>
+      <span class="n">Student</span> <span class="n">student3</span> <span class="o">=</span> <span class="n">student1</span><span class="p">;</span>
+      <span class="n">Student</span> <span class="n">student4</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="p">(</span><span class="s">"A"</span><span class="p">);</span>
+      <span class="n">Student</span> <span class="n">student5</span> <span class="o">=</span> <span class="n">student4</span><span class="p">;</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">student1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">student2</span><span class="p">));</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">student2</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">student3</span><span class="p">));</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">student1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">student3</span><span class="p">));</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">student3</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">student4</span><span class="p">));</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">student3</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">student4</span><span class="p">));</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">student5</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">student4</span><span class="p">));</span>
+
+
+   <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">Student</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>false
+false
+true
+false
+false
+true
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="AkhilNandhakumar/CSA"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/CSA/inheritance/subclass/super/public-private-protected/unit-9/2022/12/14/unit9-notes.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/CSA/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/CSA/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/CSA/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Blogging platform to document CSA notes, hacks, and test prep.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+  <a rel="me" href="“https://github.com/nighthawkcoders”" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/CSA/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="“https://twitter.com/NighthawkCoding”" target="_blank" title="twitter">
+    <svg class="svg-icon grey">
+      <use xlink:href="/CSA/assets/minima-social-icons.svg#twitter"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="“https://www.youtube.com/channel/UClIKOsDS5dsfzFA3zveDT3Q”" target="_blank" title="youtube">
+    <svg class="svg-icon grey">
+      <use xlink:href="/CSA/assets/minima-social-icons.svg#youtube"></use>
+    </svg>
+  </a>
+</li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
